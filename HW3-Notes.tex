@@ -2,6 +2,15 @@
 \usepackage{lingmacros}
 \usepackage{tree-dvips}
 \usepackage{amsmath}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 \begin{document}
 
 \title{SIE 550 HW 3 Meeting Notes}
@@ -9,30 +18,45 @@
 
 \maketitle
 
-\section{Problem 1} 
+Fork and contribute to these notes on: \url{https://github.com/eggsactly/SIE550}
+
+\section*{Problem 1} 
 We feel comfortable with problem 1, problem 3 looks like it will be hard because it is time variant. 
 
-\section{Problem 2} 
-\subsection{2.1}
+\section*{Problem 2} 
+\subsection*{2.1}
 Finding the eigenvalues, solve this equation:
 $$det(A-I\lambda)=0$$
 Look at the real part of all the eigenvalues, if all the values are less than zero the system is asymptotically stable.\\
 If any values are greater than zero then the system is unstable. 
 
-\subsection{2.2}
+\subsection*{2.2}
 What is it asking us to do?
 
-\subsubsection{2.2a}
-Attempt 1: plug in 
+\subsubsection*{2.2a}
+Plug in 
 $$P=\begin{bmatrix} p_{11} & p_{12} \\
 p_{12} & p_{22}
 \end{bmatrix}$$ 
 
 and 
 
-$$x=\begin{bmatrix} x_{1} \\
+$$\ubar{x}=\begin{bmatrix} x_{1} \\
 x_{2}
 \end{bmatrix}$$ 
+
+to
+
+$$V(\ubar{x})=\ubar{x}^TP\ubar{x}$$
+
+You will get a scalar out of that equation if you do the matrix multiplication. Then look at the two equations. 
+$p_{11}>0$ 
+and
+$p_{11}p_{22}-p_{12}^2>0$ \\
+
+For the second equation to be true, $p_{22}>0$ 
+
+Then you would need to explain that $p_{11}x_{1}^2$ and $p_{22}x_{2}^2$ dominate $p_{12}x_1x_2$ in all values for $\ubar{x}$. 
 
 
 
