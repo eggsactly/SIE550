@@ -14,7 +14,7 @@
 \begin{document}
 
 \title{SIE 550 HW 3 Meeting Notes}
-\date{2/26/17}
+\date{2/27/17}
 
 \maketitle
 
@@ -73,4 +73,42 @@ p_{12} & p_{22}
 
 At the end, you will have solved for $p_{11}$, $p_{12}$, $p_{22}$. Once you have solved for P, find the eigenvalues for P. If all the eigenvalues for P are positive then the matrix is positive definite. 
 
+\section*{Problem 3}
+\subsection*{3.1}
+Look at page 20 on the week 3 lecture notes. 
+
+We know that 
+$$A(t)=\begin{bmatrix} -1 & e^{2t} \\
+0 & -1
+\end{bmatrix}=\begin{cases}\dot{x_1}=-x_1+e^{2t}x_2\\ 
+\dot{x_2}=-x_2\\ 
+x(t_0)=[x_{10}, x_{20}]^T\\
+\end{cases}$$ 
+
+$$A(t)=\begin{bmatrix} \phi_{11}(t,t_0) & \phi_{12}(t,t_0) \\
+0 & \phi_{22}(t,t_0)
+\end{bmatrix}$$
+
+$\phi_{ii}(t,t_0)$ can be solved, but there is no equation for anything off the diagonal, regardless we can still solve.
+
+Solve for each line:
+$$x_2(t)=e^{-(t-t_0)}x_{10}$$
+$$x_1(t)=\phi_{11}(t,t_0)x_{10}+\int_{t_0}^{t}\phi_{11}(t,\tau)a_{21}(\tau)x_2(\tau)x_{20}d\tau$$
+
+This will give you the solution for each cell:
+$$\begin{bmatrix} x_1 \\
+x_2
+\end{bmatrix} = \begin{bmatrix} \phi_{11}(t,t_0) & \phi_{12}(t,t_0) \\
+0 & \phi_{22}(t,t_0)
+\end{bmatrix} \begin{bmatrix} x_{10} \\
+x_{20}
+\end{bmatrix} $$
+
+Which is a moot point because 
+$$\begin{bmatrix} x_{10} \\
+x_{20}
+\end{bmatrix} = \begin{bmatrix} 0 \\
+0
+\end{bmatrix} $$
+Because the initial conditions for this problem are all zero.
 \end{document}
