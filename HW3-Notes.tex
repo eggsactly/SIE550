@@ -77,7 +77,7 @@ At the end, you will have solved for $p_{11}$, $p_{12}$, $p_{22}$. Once you have
 \subsection*{3.1}
 Look at page 20 on the week 3 lecture notes. 
 
-We know that 
+We know that
 $$A(t)=\begin{bmatrix} -1 & e^{2t} \\
 0 & -1
 \end{bmatrix}=\begin{cases}\dot{x_1}=-x_1+e^{2t}x_2\\ 
@@ -111,4 +111,47 @@ x_{20}
 0
 \end{bmatrix} $$
 Because the initial conditions for this problem are all zero.
+
+\section{Problem 7}
+In lecture on 2/21/17 Furfaro said that the following problem shows up on the homework:
+$$\begin{cases}\dot{x_1}=-x_1-g(t)x_2\\ 
+\dot{x_2}=x_1-x_2\\
+\end{cases}$$ 
+
+$$0\leq g(t)\leq k$$
+$$\dot{g(t)} \leq g(t), \forall t \leq 0$$
+
+Choose a good Lyapunov function. 
+$$v(\bar{x},t)=x_1^2+(1+g(t))x_2^2$$
+
+1. is a good candidate\\
+$$\alpha(||\bar{x}||)\leq v(\bar{x},t)\leq \beta(||\bar{x}||)$$
+
+$$(x_1^2+x_2^2)\leq x_1^2+(1+g(t))x_2^2\leq x_1^2+(1+k)x_2^2$$
+
+$$\leq(1+k)(x_1^2+x_2^2)$$
+
+$$(x_1^2+x_2^2)\leq v(\bar{x},t)\leq (1+k)(x_1^2+x_2^2)$$
+$$(x_1^2+x_2^2)\leq v(\bar{x},t)\leq (1+k)||\bar{x}||^2$$
+$$\alpha(||\bar{x}||)=(x_1^2+x_2^2)$$
+$$\beta=(||\bar{x}||)$$
+$$c_1||\bar{x}||^2\leq v(\bar{x},t)\leq c_2||\bar{x}||^2$$
+$c_1=1$, $c_2=1+k$
+$$\dot{v}=2x_1\dot{x_1}+\dot{g(t)}x_2^2+(1+g(t))x_2\dot{x_2}$$
+$$\dot{v}(\bar{x},t)=-2x_1^2+2x_1x_2-[2+2g(t)-\dot{g}(t)]x_2^2$$
+$$\dot{v}=-[2x_1^2-2x_1x_2+[2+2g(t)-\dot{g}(t)]x_2^2]$$
+$$\dot{v}=\bar{x}^TP\bar{x}=\begin{bmatrix} x_1 & x_2 \end{bmatrix}
+\begin{bmatrix} p_{11} & p_{12} \\
+p_{21} & p_{22} \end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = (p_{11}x_1+p_{12}x_2)x_1+(p_{12}x_1+p_{22}x_2)x_2$$
+Because $\dot{g}\leq g$
+$$2+2g(t)-\dot{g}(t)\geq 2+2g(t)=g(t)$$
+$$2+2g(t)-\dot{g}(t)\geq 2+g(t)$$
+$$0\leq g(t) \leq k$$
+Conclusion:
+$$\dot{v}\leq -2x_1^2+2x_2x_2+[\alpha+2g(t)-\dot{g}(t)]$$
+$$\dot{v}\leq -2x_1^2+2x_1x_2-2x_2^2$$
+$$\dot{v}\leq -2||\bar{x}||^2$$
+
 \end{document}
+
+
