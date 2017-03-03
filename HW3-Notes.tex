@@ -11,6 +11,8 @@
     filecolor=magenta,      
     urlcolor=cyan,
 }
+\usepackage{pgfplots}
+
 \begin{document}
 
 \title{SIE 550 HW 3 Meeting Notes}
@@ -105,7 +107,48 @@ We do not know what this question is asking as of 3/2/17.
 
 \section*{Problem 4}
 \subsection*{4.1}
-To find the equilibrium points set $\dot{x_1}$ and $\dot{x_2}$ equal to zero. For each equation use the hint and solve for $x_1$ when $x_2=0$ and $x_2$ when $x_1=0$. Where both equations for $\dot{x_1}$ and $\dot{x_2}$ are zero are where your equilibrium points are. Don't worry about $f_1(x)$ and $f_2(x)$, because of the rules in the problem description these functions are zero when $x=0$.
+To find the equilibrium points set $\dot{x_1}$ and $\dot{x_2}$ equal to zero. For each equation use the hint and solve for $x_1$ when $x_2=0$ and $x_2$ when $x_1=0$. Where both equations for $\dot{x_1}$ and $\dot{x_2}$ are zero is where your equilibrium points are. Don't worry about $f_1(x)$ and $f_2(x)$, because of the rules in the problem description these functions are zero when $x=0$.
+
+\subsection*{4.2}
+Remember, an invariant set is a set where a point that starts on the set (initial condition) stays in the set.
+To show that M is an invariant set, notice that the set M is an ellipse. 
+
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $x_1$,
+    ylabel = {$x_2$},
+]
+%Below the red parabola is defined
+\addplot [
+    domain=-2.5:2.5, 
+    samples=200, 
+    color=red,
+]
+{sqrt(4-2*x^2)};
+\addlegendentry{$x_1^2+2x_2^2=4$}
+%Here the blue parabloa is defined
+\addplot [
+    domain=-2.5:2.5, 
+    samples=200, 
+    color=red,
+]
+{-sqrt(4-2*x^2)};
+
+\end{axis}
+\end{tikzpicture}
+
+If you were to solve for one side, $x_1$ for example, you would get
+$$x_1=\pm\sqrt{4-2x_2^2}$$
+
+Plugging that into your equation for $\dot{x_1}$ and $\dot{x_2}$ you will find the entire left hand side of each equation will fall off. You will end up with:
+$$\begin{bmatrix}\dot{x_1} \\ 
+\dot{x_2}\end{bmatrix}=
+\begin{cases}-4x_1^2x_2\\ 
+2x_1^3
+\end{cases}$$ 
+
+Those two equations assume that you are plugging in a point on the ellipse. If you can find a Lyapunov function for that system, it will show that the system is stable, which means that it will go to the equilibrium points, which are on the set M. This means that when you start on the set M, you will stay in the set M, meaning M is invariant.  
 
 \section*{Problem 7}
 In lecture on 2/21/17 Furfaro said that the following problem shows up on the homework:
