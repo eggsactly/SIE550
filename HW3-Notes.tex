@@ -141,7 +141,7 @@ To show that M is an invariant set, notice that the set M is an ellipse.
 If you were to solve for one side, $x_1$ for example, you would get
 $$x_1=\pm\sqrt{4-2x_2^2}$$
 
-Plugging that into your equation for $\dot{x_1}$ and $\dot{x_2}$ you will find the entire left hand side of each equation will fall off. You will end up with:
+Plugging that into your equation for $\dot{x_1}$ and $\dot{x_2}$ you will find the entire right hand side of each equation will fall off. You will end up with:
 $$\begin{bmatrix}\dot{x_1} \\ 
 \dot{x_2}\end{bmatrix}=
 \begin{cases}-4x_1^2x_2\\ 
@@ -149,6 +149,9 @@ $$\begin{bmatrix}\dot{x_1} \\
 \end{cases}$$ 
 
 Those two equations assume that you are plugging in a point on the ellipse. If you can find a Lyapunov function for that system, it will show that the system is stable, which means that it will go to the equilibrium points, which are on the set M. This means that when you start on the set M, you will stay in the set M, meaning M is invariant.  
+
+\subsection*{4.3}
+In this problem apply the Lyapunov function provided to the system. You'll find that the left hand side get's canceled out. The right hand side of each equation will be left, but it will always be less than or equal to zero if you apply the the rule $x_if(x_i)>0$.
 
 \section*{Problem 7}
 In lecture on 2/21/17 Furfaro said that the following problem shows up on the homework:
