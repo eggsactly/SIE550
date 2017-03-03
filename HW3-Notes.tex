@@ -14,7 +14,7 @@
 \begin{document}
 
 \title{SIE 550 HW 3 Meeting Notes}
-\date{2/27/17}
+\date{3/4/17}
 
 \maketitle
 
@@ -82,37 +82,28 @@ $$A(t)=\begin{bmatrix} -1 & e^{2t} \\
 0 & -1
 \end{bmatrix}=\begin{cases}\dot{x_1}=-x_1+e^{2t}x_2\\ 
 \dot{x_2}=-x_2\\ 
-x(t_0)=[x_{10}, x_{20}]^T\\
+x(t_0)=[x_1(0), x_2(0)]^T\\
 \end{cases}$$ 
 
-$$A(t)=\begin{bmatrix} \phi_{11}(t,t_0) & \phi_{12}(t,t_0) \\
-0 & \phi_{22}(t,t_0)
-\end{bmatrix}$$
-
-$\phi_{ii}(t,t_0)$ can be solved, but there is no equation for anything off the diagonal, regardless we can still solve.
-
 Solve for each line:
-$$x_2(t)=e^{-(t-t_0)}x_{10}$$
-$$x_1(t)=\phi_{11}(t,t_0)x_{10}+\int_{t_0}^{t}\phi_{11}(t,\tau)a_{21}(\tau)x_2(\tau)x_{20}d\tau$$
+$$\dot{x_2}=-x_2\implies x_2=e^{-t}x_2(0)$$
+$$\dot{x_1}=-x_1+e^{2t}e_2=-x_1+e^{2t}e^{-t}x_2(0)$$
+$$\dot{x_1}+x_1=e^tx_2(0)$$
+$$\dot{x_1}=x_{1_H}+x_{1_P}$$
+$$\dot{x_1}+x_1=0\implies x_{1_H}=-e^tx(0)$$ (Separation of variables)
+$$x_{1_P}=Ae^t\implies Ae^t+Ae^t=-e^tx_2(0)\implies A=\frac{x_2(0)}{2}$$
+$$x_1=-e^tx_1(0)+\frac{x_2(0)}{2}e^t$$
+$$\bar{x}=\begin{bmatrix} -e^t & \frac{e^t}{2} \\
+0 & e^{-t}
+\end{bmatrix}
+\begin{bmatrix}x_1(0)\\ 
+x_2(0)\\ 
+\end{bmatrix}$$ 
 
-This will give you the solution for each cell:
-$$\begin{bmatrix} x_1 \\
-x_2
-\end{bmatrix} = \begin{bmatrix} \phi_{11}(t,t_0) & \phi_{12}(t,t_0) \\
-0 & \phi_{22}(t,t_0)
-\end{bmatrix} \begin{bmatrix} x_{10} \\
-x_{20}
-\end{bmatrix} $$
+\subsection*{3.2}
+We do not know what this question is asking as of 3/2/17.
 
-Which is a moot point because 
-$$\begin{bmatrix} x_{10} \\
-x_{20}
-\end{bmatrix} = \begin{bmatrix} 0 \\
-0
-\end{bmatrix} $$
-Because the initial conditions for this problem are all zero.
-
-\section{Problem 7}
+\section*{Problem 7}
 In lecture on 2/21/17 Furfaro said that the following problem shows up on the homework:
 $$\begin{cases}\dot{x_1}=-x_1-g(t)x_2\\ 
 \dot{x_2}=x_1-x_2\\
