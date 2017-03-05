@@ -15,12 +15,43 @@
 
 \section*{Definitions}
 
-Hurowitz: When all eigenvalues of A are such that $\mathcal{R}_e(\lambda_i)<0$ A is called Hurowitz. 
+\begin{itemize}
 
-Decrescent: $v(\bar{x},t)$ is decrescent if $v(\bar{0},t)=0$ and if $\exists$ \\ a time-invariant positive definite function $v_e(\bar{x})$ such that $\forall t\geq0$, $v(\bar{x},t)\leq v_e(\bar{x})$.
+\item Positive definite: For function $V(\bar{x})>0, \forall x | x\neq0$ (Page 9, stability concepts (I)).
 
-Invariant: A set $G$ is an {\em invariant set} for a dynamic system if every system trajectory which starts in $G$ stays in $G$ for all future times. \\
+\item Hurowitz: When all eigenvalues of A are such that $\mathcal{R}_e(\lambda_i)<0$ A is called Hurowitz. 
 
-Limit Cycle: A limit cycle in the phase-plane of a second-order system is an isolated closed trajectory. 
+\item Decrescent: $v(\bar{x},t)$ is decrescent if $v(\bar{0},t)=0$ and if $\exists$ \\ a time-invariant positive definite function $v_e(\bar{x})$ such that $\forall t\geq0$, $v(\bar{x},t)\leq v_e(\bar{x})$.
+
+\item Invariant: A set $G$ is an {\em invariant set} for a dynamic system if every system trajectory which starts in $G$ stays in $G$ for all future times. 
+
+\item Limit Cycle: A limit cycle in the phase-plane of a second-order system is an isolated closed trajectory. 
+\end{itemize}
+
+
+
+\section*{Stability Theorems}
+\subsection*{Stability of Autonomous Systems, $\dot{\bar{x}}=\bar{f}(\bar{x})$}
+\begin{itemize}
+\item Stable (Stability Concepts (I), page 11): a time invariant system is {\em stable} when it meets the following criteria. There exists a {\em Lyapunov function} where:
+	\begin{itemize}
+	\item $V(\bar{x})>0, \forall x \in D/\{\bar{0}\}$
+	\item $V(\bar{0})=\bar{0}$
+	\item $V(\bar{x})\leq0, \forall x \in D$
+	\end{itemize}
+\item Asymptotically Stable if:
+	\begin{itemize}
+	\item The criteria for stable are meet and
+	\item $V(\bar{x})<0, \forall x \in D/\{\bar{0}\}$
+	\end{itemize}
+\item Globally Asymptotically Stable if:
+	\begin{itemize}
+	\item The criteria for Asymptotically Stable are meet and
+	\item $V(\bar{x})\to\infty$ as $||\bar{x}||\to\infty$
+	\end{itemize}
+\end{itemize}
+
+
+Page 10, Stability Concepts (II)
 
 \end{document}
