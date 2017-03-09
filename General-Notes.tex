@@ -95,5 +95,23 @@
 	\end{itemize}
 \end{itemize}
 
+\section*{Jordan Form}
+\subsection*{Finding Eigenvectors For Defective Matricies}
+Given that $\lambda$ is repeated $n$ times. $v_i$ can be found with:
+$$det(A-\lambda I)\bar{v_1}=\bar{0}$$
+$$det(A-\lambda I)\bar{v_2}=\bar{v_1}$$
+$$det(A-\lambda I)\bar{v_3}=\bar{v_2}$$
+And so on...
+\subsection*{Finding Solution With Jordan Blocks}
+If you have a Jordan Block, a solution will be in the form:
+$$e^{J_it}=e^{(\lambda_iI+N_i)t}=e^{\lambda_it}e^{N_it}$$
+Where $e^{\lambda_it}$ is a scalar value and $e^{N_it}$ is a matrix because $N_i$ is a matrix. $e^{N_it}$ can be found with the following equation.
+
+$$e^{N_it}=\begin{bmatrix} 1 & t & \frac{t^2}{2} & \dots & \frac{t^{n-1}}{(n-1)!} \\
+0 & 1 & t & \dots & \frac{t^{n-2}}{(n-2)!} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & 1 & t \\
+0 & 0 & 0 & 0 & 1\\
+\end{bmatrix}$$ 
 
 \end{document}
