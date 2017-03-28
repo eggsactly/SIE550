@@ -1,0 +1,125 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\begin{document}
+
+{\centering
+ \textbf{SIE 550 (Linear) Systems Theory\\Homework \#4 - Due date: Wednesday, April 5, 2017 \newline}\par
+ 
+} 
+
+\noindent
+\textbf{Problem 1:} Consider the following non-linear autonomous system
+
+$$
+\begin{cases} 
+	\dot{x_1} = - |x_1|^{0.5} sgn(x_1)- x_1^5+x_2 \\
+	\dot{x_2}=-|x_2|^{0.5} sgn(x_2)-x_2^5-x_1
+\end{cases}
+$$
+Study the Finite-Time (FTS) of the origin and answer the following questions:
+\begin{enumerate}
+	\item Is the origin FTS?
+	\item Is the origin Globally FTS?
+	\item Find, if possible, the settling time
+\end{enumerate}
+
+\noindent
+\textbf{Problem 2:} Consider the following non-linear non-autonomous first-order system
+$$
+\dot{x}=-\frac{|x|}{1+(cos(t))^2}
+$$
+Study the Finite-Time Stability (FTS) of the system \\
+
+\noindent
+\textbf{Problem 3:} Examine the controllability of the system
+$$
+\dot{x}=
+\begin{pmatrix} 
+	\frac{1}{t} & 0 \\
+	0 & \frac{1}{t}
+\end{pmatrix} x + 
+\begin{pmatrix} 
+1 \\
+1
+\end{pmatrix} u
+$$
+
+\noindent
+\textbf{Problem 4:} Compute matrix $W(t_0,t_1)$ for the system described below, and illustrate Properties (i) and (ii) of Theorem 5.2. Select the [0,1] interval.
+$$
+\dot{x}=
+\begin{pmatrix}
+	1 & 1 \\
+	2 & 2
+\end{pmatrix}
+x + 
+\begin{pmatrix}
+	1 \\
+	0
+\end{pmatrix} u
+$$
+
+\noindent
+\textbf{Problem 5:} Determine if system
+$$ \dot{x} = 
+\begin{pmatrix}
+	2 & 1 \\
+	0 & 2
+\end{pmatrix} x +
+\begin{pmatrix} 
+	1 \\
+	1
+\end{pmatrix} u
+$$
+is completely controllable by using the controllability matrix (5.10). \\
+
+\noindent
+\textbf{Problem 6:} Is there any input for system 
+$$ \dot{x}=
+\begin{pmatrix}
+1 & 1 \\
+2 & 2
+\end{pmatrix} x + 
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}u,\quad x(0)=
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix},$$
+which controls the trajectory to 
+$$x(t)=\begin{pmatrix}
+t + 1 \\
+1
+\end{pmatrix}
+$$
+in the interval [0,1]? \\
+
+\noindent
+\textbf{Problem 7:} Discuss the controllability of the mechanical system
+$$\dot{x}=
+\begin{pmatrix}
+	0 & 1 \\
+	0 & -6
+\end{pmatrix}	
+x + 
+\begin{pmatrix}
+0 \\
+2
+\end{pmatrix} u
+$$
+introduced in Problem 3.7.
+
+\end{document}
