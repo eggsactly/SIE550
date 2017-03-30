@@ -33,6 +33,18 @@
 
 \item Inner Sum (Direct Sum): Represented with the symbol $\oplus$ is a coordinate-wise sum. For example consider the sets $a=(x_1,y_1)$ and $b=(x_2, y_2)$, $a\oplus b=(x_1+x_2,y_1+y_2)$.
 
+\item Span: The set of all linear combinations of vectors in a set.
+
+\item Null Space: The {\em Null Space} of a matrix ${\cal N}(A)$ is the set of vectors $\bar{x}$ where $A\bar{x}=\bar{0}$
+
+\item Range: The {\em Range} of a matrix ${\cal R}(A)$ is the span of all the column vectors in matrix $A$.
+
+\item Basis: The basis of a set of vectors is a subset where all vectors of the set can be represented as a linear combination of vectors in the subset. 
+
+\item Dimension: The number of vectors in the basis.
+
+\item Rank: The number of linearly independent columns in a matrix.
+
 \end{itemize}
 
 
@@ -97,6 +109,21 @@
 	\begin{itemize}
 	\item Exponential Stability criteria apply and:
 	\item $c_1||\bar{x}||^2\leq V(\bar{x},t)\leq c_2||\bar{x}||^2$
+	\end{itemize}
+\item Finite Time Stability (Week 7 Lecture notes, page 7)
+	\begin{itemize}
+	\item There exist a continuously differentiable Lyapunov Function and a function $R(z)$ where $\dot{V}(\bar{x},t)\leq-R(V(\bar{x},t))$
+	\item $\int_0^E\frac{dz}{R(z)}<+\infty$ for $E>0$
+	\end{itemize}
+\item Uniform Finite Time Stability
+	\begin{itemize}
+	\item The criteria for Finite Time Stability are met and: 
+	\item $V(\bar{x},t)$ is {\em decrescent}.
+	\end{itemize}
+\item Globally Finite Time Stable 
+	\begin{itemize}
+	\item The criteria for Uniform Finite Time Stability are met and: 
+	\item $V(\bar{x},t)$ is {\em Radially Unbounded}
 	\end{itemize}
 \end{itemize}
 
