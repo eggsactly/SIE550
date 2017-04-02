@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{pgfplots}
+
+\begin{document}
+
+\title{SIE 550 HW 3 Meeting Notes}
+\date{4/2/17}
+
+\maketitle
+
+Fork and contribute to these notes on: \url{https://github.com/eggsactly/SIE550}
+
+\section*{Problem 5} 
+From page 251:\\
+Matrix $W(t_0,t_1)$ satisfies the following properties:
+\renewcommand{\labelenumiii}{\Roman{enumii}}
+\begin{enumerate}
+  \item {\em It is symmetric.}
+  \item {\em It is positive semi-deifinte}. 
+  \item $(\partial/\partial t)W(t,t_1)=A(t)W(t,t_1)+W(t,t_1)A^T(t)-B(t)B^T(t)$, \\$W(t_1,t_1)=0$
+  \item $W(t_0,t_1)=W(t_0,t)+\phi(t_0,t)W(t,t_1)\phi^T(t_0,t)$
+\end{enumerate}
+
+\end{document}
+
+
