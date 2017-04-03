@@ -47,6 +47,8 @@
 
 \item Controllable: A dynamic system with initial condition $x(t_0)=x_0$ is said to be controllable to state $x_1$ at $t_1(>t_0)$ if there exists an input $u(t)$ such that $x(t_1)=x_1$ ({\em Linear Systems Theory}, Page 243)  . 
 
+\item Transition Matrix (Fundamental Matrix): $\phi(t,\tau)=e^{A(t-\tau)}$
+
 \end{itemize}
 
 
@@ -248,5 +250,6 @@ is controllable.
 
 \subsection*{Theorem 5.4 ({\em Linear Systems Theory} Page. 258)}
 The time-invariant continuous linear system is completely controllable if and only if the rank of the controllability matrix $K$ equals n.
+$$K=(B,AB,A^2B,\dots,A^{n-1}B)$$
 \end{document}
 
