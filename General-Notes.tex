@@ -43,7 +43,7 @@
 
 \item Dimension: The number of vectors in the basis.
 
-\item Rank: The number of linearly independent column vectors in a matrix.
+\item Rank: The maximum number of linearly independent column (or row) vectors in a matrix. ({\em Linear Systems Theory}, Page 257)
 
 \item Controllable: A dynamic system with initial condition $x(t_0)=x_0$ is said to be controllable to state $x_1$ at $t_1(>t_0)$ if there exists an input $u(t)$ such that $x(t_1)=x_1$ ({\em Linear Systems Theory}, Page 243)  . 
 
@@ -227,7 +227,7 @@ $$
 The diagonal transition functions can be found with this equation:
 $$\phi_{ii}(t,t_0)=e^{\int_{t_0}^ta_{ii}(\tau)d\tau}$$
 
-\section{Controllability}
+\section*{Controllability}
 \subsection*{Theorem 5.1 ({\em Linear Systems Theory} Page. 249)}
 The continuous linear system is controllable from any initial state $x(t_0)=x_0$ to an arbitrary state $x_1$ at time $t_1>t_0$ if and only if matrix $W(t_0,t_1)$ is nonsingular.
 
