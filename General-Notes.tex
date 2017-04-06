@@ -231,6 +231,9 @@ $$\phi_{ii}(t,t_0)=e^{\int_{t_0}^ta_{ii}(\tau)d\tau}$$
 \subsection*{Theorem 5.1 ({\em Linear Systems Theory} Page. 249)}
 The continuous linear system is controllable from any initial state $x(t_0)=x_0$ to an arbitrary state $x_1$ at time $t_1>t_0$ if and only if matrix $W(t_0,t_1)$ is nonsingular.
 
+\subsection*{Controllability Gramian}
+$$W(t_0,t_1)=\int_{t_0}^{t_1}\phi(t_0,\tau)B(\tau)B^T(\tau)\phi^T(t_0,\tau)d\tau$$
+
 \subsection*{Theorem 5.2 ({\em Linear Systems Theory} Page. 251)}
 Matrix $W(t_0,t_1)$ satisfies the following properties:
 \renewcommand{\labelenumiii}{\Roman{enumii}}
