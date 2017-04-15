@@ -17,9 +17,11 @@
 
 \begin{itemize}
 
-\item Positive Definite: For function $V(\bar{x})>0, \forall x | x\neq0$ (Stability Concepts (I), Page 9).
+\item Positive Definite: For function $V(\bar{x})>0, \forall x | x\neq0$ (Stability Concepts (I), Page 9). A matrix is positive definite if all the eigen-values are greater than zero. 
 
-\item Semi-Definite Negative: For function $V(\bar{x})\leq0$ (Stability Concepts (II), Page 3).
+\item Positive Semi-Definite: For function $V(\bar{x})\geq0, \forall x | x\neq0$ A matrix is positive semi-definite if all the eigen-values are greater than or equal to zero. 
+
+\item Semi-Definite Negative: For function $V(\bar{x})\leq0$ (Stability Concepts (II), Page 3). 
 
 \item Hurowitz: When all eigenvalues of A are such that $\mathcal{R}_e(\lambda_i)<0$ A is called Hurowitz. 
 
@@ -260,6 +262,20 @@ $$K=(B,AB,A^2B,\dots,A^{n-1}B)$$
 
 
 \subsection*{Equation 5.6 ({\em Linear Systems Theory} Page. 296)}
-$$M(t_0,t_1)=int_{t_0}^{t_1}=\phi^T(\tau,t_0)C^T(\tau)C(\tau)\phi(\tau,t_0)d\tau$$
+$$M(t_0,t_1)=\int_{t_0}^{t_1}\phi^T(\tau,t_0)C^T(\tau)C(\tau)\phi(\tau,t_0)d\tau$$
+
+$$ \phi(\tau,t_0) = 
+\begin{bmatrix}
+e^{2(\tau-t_0)} & (\tau-t_0)e^{2(\tau-t_0)} \\
+0 & e^{2(\tau-t_0)}
+\end{bmatrix}
+$$
+
+$$
+M(0,t_1)=\begin{bmatrix}
+0 & 0 \\
+0 & \frac{e^{4{t_1}}-1}{4}
+\end{bmatrix}
+$$
 
 \end{document}
