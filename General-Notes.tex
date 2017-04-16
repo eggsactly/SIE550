@@ -241,7 +241,7 @@ Matrix $W(t_0,t_1)$ satisfies the following properties:
 \renewcommand{\labelenumiii}{\Roman{enumii}}
 \begin{enumerate}
   \item {\em It is symmetric.}
-  \item {\em It is positive semi-defiinte}. 
+  \item {\em It is positive semi-definite}. 
   \item $(\partial/\partial t)W(t,t_1)=A(t)W(t,t_1)+W(t,t_1)A^T(t)-B(t)B^T(t)$, \\$W(t_1,t_1)=0$
   \item $W(t_0,t_1)=W(t_0,t)+\phi(t_0,t)W(t,t_1)\phi^T(t_0,t)$
 \end{enumerate}
@@ -258,24 +258,71 @@ The time-invariant continuous linear system is completely controllable if and on
 $$K=(B,AB,A^2B,\dots,A^{n-1}B)$$
 
 
+\newpage
 \section*{Observability}
-
 
 \subsection*{Equation 5.6 ({\em Linear Systems Theory} Page. 296)}
 $$M(t_0,t_1)=\int_{t_0}^{t_1}\phi^T(\tau,t_0)C^T(\tau)C(\tau)\phi(\tau,t_0)d\tau$$
 
-$$ \phi(\tau,t_0) = 
-\begin{bmatrix}
-e^{2(\tau-t_0)} & (\tau-t_0)e^{2(\tau-t_0)} \\
-0 & e^{2(\tau-t_0)}
+\subsection*{Theorem 6.1 ({\em Linear Systems Theory} Page. 296)}
+It is possible to determine $x_0$ with in an additive constant vector, which is in $N(M(t_0,t_1))$. If $M(t_0,t_1)$ is nonsingular, then $x_0$ can be determined uniquely.
+
+\subsection*{Theorem 6.2 ({\em Linear Systems Theory} Page. 299)}
+Matrix $M(t_0,t_1)$ satisfies the following properties:
+\renewcommand{\labelenumiii}{\Roman{enumii}}
+\begin{enumerate}
+  \item {\em It is symmetric.}
+  \item {\em It is positive semi-definite}. 
+  \item $(\partial/\partial t)M(t,t_1)=-A(t)M(t,t_1)-M(t,t_1)A(t)-C^T(t)C(t)$, \\$M(t_1,t_1):0$
+  \item $M(t_0,t_1)=M(t_0,t)+\phi(t,t_0)M(t,t_1)\phi^T(t,t_0)$
+\end{enumerate}
+
+\subsection*{Theorem 6.3 ({\em Linear Systems Theory} Page. 300)}
+The time-invariant continuous linear system is observable for arbitrary $t_1>t_0$ if and only if the rank of the observability matrix $L$ equals n.
+
+$$L=\begin{bmatrix}
+C \\
+CA \\
+CA^2 \\
+CA^{m-1}
 \end{bmatrix}
 $$
 
+\subsection*{Theorem 6.4 ({\em Linear Systems Theory} Page. 302)}
+Assume that the rank r of matrix $L$ is less than n. Then there exists a nonsingular matrix $T$ such that
+
+$$\bar{A}=TAT^{-1}=\begin{pmatrix}
+\bar{A}_{11} & O \\
+\bar{A}_{21} & \bar{A}_{22}
+\end{pmatrix}
 $$
-M(0,t_1)=\begin{bmatrix}
-0 & 0 \\
-0 & \frac{e^{4{t_1}}-1}{4}
-\end{bmatrix}
+
+$$\bar{B}=TB=\begin{pmatrix}
+\bar{B}_{1}\\
+\bar{B}_{2}
+\end{pmatrix}
 $$
+
+$$\bar{A}=CT^{-1}=\begin{pmatrix}
+\bar{C}_{1} & O 
+\end{pmatrix}
+$$
+
+\noindent
+where the sizes of matrices $\bar{A}_{11}$, $\bar{A}_{21}$, $\bar{A}_{22}$ are $r\times r, (n-r)\times r, (n-r)\times (n-r),$ respectively, and $\bar{B}_1$ has r rows and $\bar{C}_1$ has r columns. Furthermore,
+\renewcommand{\labelenumiii}{\Roman{enumii}}
+\begin{enumerate}
+  \item system $(\bar{A}_{11}, \bar{B}_1, \bar{C}_1)$ is completely observable, and
+  \item the transfer function of systems $(A, B, C)$ and $(\bar{A}_{11}, \bar{B}_1, \bar{C}_1)$ coincide.
+\end{enumerate}
+
+\subsection*{Theorem 6.5 ({\em Linear Systems Theory} Page. 303)}
+System $(A, B, C)$ is completely observable if and only if matrix $A$ has not eigenvector $q$ that is orthogonal to the rows of $C$.
+
+\subsection*{Theorem 6.6 ({\em Linear Systems Theory} Page. 304)}
+It is possible to determine $x_0$ within an additive constant vector, which is in $N(M(0,t_1))$. If $M(0,t_1)$ is nonsingular, then $x_0$ can be determined uniquely. 
+
+\subsection*{Theorem 6.7 ({\em Linear Systems Theory} Page. 304)}
+The time-invariant discrete linear system is observable at arbitrary $t_1\geq n$ if and only if the rank of the observability matrix $L$ equals n.
 
 \end{document}
