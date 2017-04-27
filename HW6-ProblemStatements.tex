@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\begin{document}
+
+{\centering
+ \textbf{SIE 550 (Linear) Systems Theory\\Homework \#6 - Due date: Wednesday, May 3, 2017 \newline}\par
+ 
+} 
+
+\noindent
+\textbf{Problem 1:} Discuss the observability of system ({\em Linear Systems Theory}) Chapter 9, Problem 6 (page 287)
+	
+$$
+\dot{\bar{x}}=
+\begin{pmatrix}
+	1 & 1 \\
+	2 & 2
+\end{pmatrix}
+\bar{x}+
+\begin{pmatrix}
+	1 \\
+	0
+\end{pmatrix} u
+$$
+and polynomial $p(\lambda)=\lambda^2+2\lambda+1$. Select $c^T=(1, 1, 1)$.
+Confirm your hand calculation via MATLAB (use "place" or "acker" command depending on the situation). Assume this is a regulation problem and provide a MATLAB somulation that shows the behavior of the states and of the output of the systems form the following initial conditions $x(0)=[1,1]^T$
+
+
+
+\end{document}
