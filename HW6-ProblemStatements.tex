@@ -19,7 +19,7 @@
 } 
 
 \noindent
-\textbf{Problem 1:} Discuss the observability of system ({\em Linear Systems Theory}) Chapter 9, Problem 6 (page 287)
+\textbf{Problem 1:} Apply the corollary of Theorem 9.1 for system ({\em Linear Systems Theory}) Chapter 9, Problem 6 (page 458)
 	
 $$
 \dot{\bar{x}}=
@@ -33,8 +33,27 @@ $$
 	0
 \end{pmatrix} u
 $$
-and polynomial $p(\lambda)=\lambda^2+2\lambda+1$. Select $c^T=(1, 1, 1)$.
-Confirm your hand calculation via MATLAB (use "place" or "acker" command depending on the situation). Assume this is a regulation problem and provide a MATLAB somulation that shows the behavior of the states and of the output of the systems form the following initial conditions $x(0)=[1,1]^T$
+and polynomial $p(\lambda)=\lambda^2+2\lambda+1$. Select $c^T=(1, 0)$.\\
+Confirm your hand calculation via MATLAB (use "place" or "acker" command depending on the situation). Assume this is a regulation problem and provide a MATLAB simulation that shows the behavior of the states and of the output of the systems form the following initial conditions $x(0)=[1,1]^T$\\
+
+\noindent
+\textbf{Problem 2:} Apply the corollary of Theorem 9.1 for system ({\em Linear Systems Theory}) Chapter 9, Problem 7 (page 458)
+$$
+\dot{\bar{x}}=
+\begin{pmatrix}
+	0 & 1 & 2 \\
+	0 & 1 & 1 \\
+	0 & 0 & 2
+\end{pmatrix}
+\bar{x}+
+\begin{pmatrix}
+	1 \\
+	2 \\
+	1
+\end{pmatrix} u
+$$
+and polynomial $p(\lambda)=\lambda^3+1$. Select $c^T=(1, 1, 1)$.\\
+Confirm your hand calculation via MATLAB (use "place" or "acker" command depending on the situation). Assume this is a regulation problem and provide a MATLAB simulation that shows the behavior of the states and of the output of the systems form the following initial conditions $x(0)=[1,1,1]^T$\\
 
 
 
