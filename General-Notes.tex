@@ -325,4 +325,75 @@ It is possible to determine $x_0$ within an additive constant vector, which is i
 \subsection*{Theorem 6.7 ({\em Linear Systems Theory} Page. 304)}
 The time-invariant discrete linear system is observable at arbitrary $t_1\geq n$ if and only if the rank of the observability matrix $L$ equals n.
 
+\section*{Canonical Forms}
+\subsection*{Computed Form}
+\subsubsection*{Theorem 7.1}
+Assume that system $(A, b, c^T)$ is completely controllable, then it can be transformed into an $(\tilde{A}, \tilde{b}, \tilde{c}^T)$-system, where \\
+$\tilde{A}=
+\begin{pmatrix}
+	0 & 0 & 0 & \dots & 0 & a_0 \\
+	1 & 0 & 0 & \dots & 0 & a_1 \\
+	0 & 1 & 0 & \dots & 0 & a_2 \\
+	\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+	0 & 0 & 0 & \dots & 1 & a_{n-1} 
+\end{pmatrix}$ and 
+$\tilde{b}=\begin{pmatrix}
+1\\
+0\\
+0\\
+\vdots\\
+0
+\end{pmatrix}$
+
+$$K=(b,Ab,A^2b,\dots,A^{n-1}b)$$
+$$T = K^{-1}$$
+$$\tilde{A}=TAT^{-1}$$
+$$\tilde{b}=Tb$$
+$$\tilde{c}^T=C^TT^{-1}$$
+
+\subsection*{Assembled Form}
+$\tilde{A}=
+\begin{pmatrix}
+	0 & 1 & 0 & \dots & 0 \\
+	0 & 0 & 1 & \dots & 0 \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	0 & 0 & 0 & \dots & 1 \\
+	a_0 & a_1 & a_2 & \dots & a_{n-1} 
+\end{pmatrix}$ and 
+$\tilde{b}=\begin{pmatrix}
+0\\
+0\\
+\vdots\\
+0\\
+1
+\end{pmatrix}$
+
+$$K=(b,Ab,A^2b,\dots,A^{n-1}b)$$
+
+$$\begin{pmatrix}
+	t_1^T\\
+	t_2^T\\
+	\vdots\\
+	t_n^T
+\end{pmatrix} = K^{-1}$$
+
+$$T=\begin{pmatrix}
+	t_n^T\\
+	t_n^TA\\
+	t_n^TA^2\\
+	\vdots\\
+	t_n^TA^{n-1}\\
+\end{pmatrix}$$
+
+$$\tilde{A}=TAT^{-1}$$
+$$\tilde{b}=Tb$$
+$$\tilde{c}^T=C^TT^{-1}$$
+
+\section*{Estimation and Design}
+\subsection*{Theorem 9.1}
+To find the matrix $K$ follow the algorithm below
+\begin{itemize}
+	\item Find the cannonical form of the system. 
+\end{itemize}
+
 \end{document}
