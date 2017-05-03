@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage{lingmacros}
+\usepackage{tree-dvips}
+\usepackage{amsmath}
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{pgfplots}
+
+\begin{document}
+
+\title{SIE 550 HW 6 Meeting Notes}
+\date{5/2/17}
+
+\maketitle
+
+Fork and contribute to these notes on: \url{https://github.com/eggsactly/SIE550}
+
+\section*{Problem 1}
+\subsection*{Matlab Commands}
+A=[1,1;2,2];\\
+B=[1;0];\\
+J=[-1 -1];\\
+K=acker(A,B,J);\\
+sys=ss(A-B*K,eye(2),eye(2),eye(2));\\
+t=0:0.001:4\\
+x=initial(sys,[1;1],t);\\
+x1=[1 0]*x'\\
+x2=[0 1]*x'\\
+plot(t,x1,t,x2)\\
+\end{document}
+
+
