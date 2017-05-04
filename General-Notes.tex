@@ -256,7 +256,8 @@ is controllable.
 \subsection*{Theorem 5.4 ({\em Linear Systems Theory} Page. 258)}
 The time-invariant continuous linear system is completely controllable if and only if the rank of the controllability matrix $K$ equals n.
 $$K=(B,AB,A^2B,\dots,A^{n-1}B)$$
-
+$rank(K)=n$ $\rightarrow$ Fully controllable (completly).
+ 
 
 \newpage
 \section*{Observability}
@@ -287,7 +288,7 @@ CA^2 \\
 CA^{m-1}
 \end{bmatrix}
 $$
-
+$rank(L)=n$ $\rightarrow$ Fully observable.
 \subsection*{Theorem 6.4 ({\em Linear Systems Theory} Page. 302)}
 Assume that the rank r of matrix $L$ is less than n. Then there exists a nonsingular matrix $T$ such that
 
@@ -325,9 +326,24 @@ It is possible to determine $x_0$ within an additive constant vector, which is i
 \subsection*{Theorem 6.7 ({\em Linear Systems Theory} Page. 304)}
 The time-invariant discrete linear system is observable at arbitrary $t_1\geq n$ if and only if the rank of the observability matrix $L$ equals n.
 
+\subsection*{Primal vs. Dual ({\em SIE550\_FinalReview} Page 2)}
+$$
+\begin{cases}
+	\dot{\bar{x}}=A\bar{x}+B\bar{u} \\
+	\bar{y}=C\bar{x}
+\end{cases}
+\longleftrightarrow
+\begin{cases}
+	\dot{\bar{z}}=A^T\bar{z}+C^T\bar{v} \\
+	\bar{w}=B^T\bar{z}
+\end{cases}
+$$
+P is completly controllable $\leftrightarrow$ D is completly observable.
+$$K_p^T=L_D$$
+
 \section*{Canonical Forms}
+
 \subsection*{Computed Form}
-\subsubsection*{Theorem 7.1}
 Assume that system $(A, b, c^T)$ is completely controllable, then it can be transformed into an $(\tilde{A}, \tilde{b}, \tilde{c}^T)$-system, where \\
 $\tilde{A}=
 \begin{pmatrix}
