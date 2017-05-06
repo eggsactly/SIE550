@@ -17,7 +17,7 @@
 
 \begin{itemize}
 
-\item Basis: The set of linearly independent vectors of capable of representing all vectors in the space by linear combination. (SIE 550 Week 1 Lecture Notes page 3).
+\item Basis: The set of linearly independent vectors capable of representing all vectors in the space by linear combination (SIE 550 Week 1 Lecture Notes page 3).
 
 \item Basis, Canonical: A basis who's vectors are perpendicular to each other. 
 
@@ -25,11 +25,15 @@
 
 \item Decrescent: $v(\bar{x},t)$ is decrescent if $v(\bar{0},t)=0$ and if $\exists$ \\ a time-invariant positive definite function $v_e(\bar{x})$ such that $\forall t\geq0$, $v(\bar{x},t)\leq v_e(\bar{x})$.
 
-\item Dimension: The number of vectors in the basis.
+\item Dimension: The number of vectors in the basis (SIE 550 Week 1 Lecture Notes page 3), ie the number of linearly independent vectors that represent all the other vectors in a vector space.
 
 \item Hurowitz: When all eigenvalues of A are such that $\mathcal{R}_e(\lambda_i)<0$ A is called Hurowitz. 
 
 \item Inner Sum (Direct Sum): Represented with the symbol $\oplus$ is a coordinate-wise sum. For example consider the sets $a=(x_1,y_1)$ and $b=(x_2, y_2)$, $a\oplus b=(x_1+x_2,y_1+y_2)$.
+
+\item Isomorphic: Two vector spaces are {\em isomorphic} if the have the same {\em dimension}.
+
+\item Kernel: See { \em Null Space}.
 
 \item Invariant: A set $G$ is an {\em invariant set} for a dynamic system if every system trajectory which starts in $G$ stays in $G$ for all future times. (Stability concepts (II) pages 1)
 
@@ -37,24 +41,72 @@
 
 \item Non-Singular: A matrix is non-singular if an inverse exists for the matrix. A square matrix is non-singular {\em if-and-only-if} its determinant is non-zero.
 
-\item Null Space: The {\em Null Space} of a matrix ${\cal N}(A)$ is the set of vectors $\bar{x}$ where $A\bar{x}=\bar{0}$
+\item Null Space (Kernel): The {\em Null Space} of a matrix ${\cal N}(A)$ is the set of vectors $\bar{x}$ where $A\bar{x}=\bar{0}$
 
 \item Positive Definite: For function $V(\bar{x})>0, \forall x | x\neq0$ (Stability Concepts (I), Page 9). A matrix is positive definite if all the eigen-values are greater than zero. 
 
 \item Positive Semi-Definite: For function $V(\bar{x})\geq0, \forall x | x\neq0$ A matrix is positive semi-definite if all the eigen-values are greater than or equal to zero. 
 
-\item Range: The {\em Range} of a matrix ${\cal R}(A)$ is the span of all the column vectors in matrix $A$.
+\item Range: The {\em Range} of a matrix ${\cal R}(A)$ is the span of all the linearly independent column vectors in matrix $A$.
 
-\item Rank: The maximum number of linearly independent column (or row) vectors in a matrix. ({\em Linear Systems Theory}, Page 257) 
+\item Rank: The maximum number of linearly independent column (or row) vectors in a matrix. ({\em Linear Systems Theory}, Page 257) It is the { \em Dimension} of the {\em Range} (SIE 550 Week 1 Lecture Notes page 6).
 
 \item Semi-Definite Negative: For function $V(\bar{x})\leq0$ (Stability Concepts (II), Page 3). 
 
-\item Span: The set of all linear combinations of vectors in a set.
+\item Span: The set of all linear combinations of vectors in a set. 
 
 \item Transition Matrix (Fundamental Matrix): $\phi(t,\tau)=e^{A(t-\tau)}$
 
 \end{itemize}
 
+\newpage
+\section*{Basic Linear Algebra}
+\subsection*{Row Echelon Form}
+A matrix is in Row Echelon Form if:
+\begin{itemize}
+	\item The first non-zero element in each row is a 1
+	\item The Each leading entry is to the right of the previous row
+	\item Rows with all zero elements are below rows having non-zero elements
+\end{itemize}
+\noindent
+The following matrix is an example of row echelon form:
+$$
+\begin{bmatrix}
+	1 & 2 & -1 & 0 & 5 \\
+	0 & 0 & 1 & 3 & 1 \\
+	0 & 0 & 0 & 1 & -3 
+\end{bmatrix} 
+$$
+
+\subsection*{Row Reduced Echelon Form}
+A matrix is in Row Reduced Echelon Form if:
+\begin{itemize}
+	\item The matrix meets the conditions of Row Echelon Form
+	\item Every leading one is the only non-zero value in its column
+\end{itemize}
+\noindent
+The following matrix is an example of row reduced echelon form:
+$$
+\begin{bmatrix}
+	1 & 2 & 0 & 0 & 15 \\
+	0 & 0 & 1 & 0 & 10 \\
+	0 & 0 & 0 & 1 & -3 
+\end{bmatrix} 
+$$
+
+\noindent
+Matricies can be put in Row Echelon Form and Row Reduced Echelon form using Gauss Elimination.
+
+\subsection*{Finding Rank}
+To find the {\em Rank} of a matrix (the {\em dimension} of the {\em range}) put the matrix in row echelon form using Gauss Elmination and the number of columns with a leading 1 is the {\em Rank}
+
+\subsection*{Finding Dimension of Null Space}
+To find the number of linearly independent vectors in the null space, find the rank of the matrix, subtract the number of columns in the matrix by the rank, that is the dimension of the null space, the number of linearly independent vectors which allows the linear equation to be zero.
+
+This is based on the theorem on page 7 of the SIE 550 Week 1 lecture notes where:
+$$L:E_n \rightarrow E_m \text{ \& } dim(E_n)=n$$
+then 
+$$dim(E_n)=dim({\cal N}(L))+dim({\cal R}(L))$$
 
 \newpage
 \section*{Stability Theorems}
