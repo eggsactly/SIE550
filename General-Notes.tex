@@ -31,7 +31,11 @@
 
 \item Inner Sum (Direct Sum): Represented with the symbol $\oplus$ is a coordinate-wise sum. For example consider the sets $a=(x_1,y_1)$ and $b=(x_2, y_2)$, $a\oplus b=(x_1+x_2,y_1+y_2)$.
 
-\item Isomorphic: Two vector spaces are {\em isomorphic} if the have the same {\em dimension}.
+\item Isomorphic: Two vector spaces are {\em isomorphic} if they have the same {\em dimension}. This means isomorphism has two implications. $L:E\rightarrow F$ ($\bar{x}\rightarrow y=L\bar{x}$) such that:
+\begin{enumerate}
+	\item one-to-one $L(x_1)\neq L(x_2)$ if $x_1\neq x_2$ $\forall x, x_2 \in E_m$
+	\item onto: For any $\bar{y} \in F, \exists \bar{x} \in E$ such that $L(\bar{x})=\bar{y}$
+\end {enumerate}
 
 \item Kernel: See { \em Null Space}.
 
@@ -52,6 +56,8 @@
 \item Rank: The maximum number of linearly independent column (or row) vectors in a matrix. ({\em Linear Systems Theory}, Page 257) It is the { \em Dimension} of the {\em Range} (SIE 550 Week 1 Lecture Notes page 6).
 
 \item Semi-Definite Negative: For function $V(\bar{x})\leq0$ (Stability Concepts (II), Page 3). 
+
+\item Similar: Matricies $A$ and $B$ are similar if $\exists P | B=P^{-1}AP$.
 
 \item Span: The set of all linear combinations of vectors in a set. 
 
