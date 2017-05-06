@@ -25,6 +25,8 @@
 
 \item Decrescent: $v(\bar{x},t)$ is decrescent if $v(\bar{0},t)=0$ and if $\exists$ \\ a time-invariant positive definite function $v_e(\bar{x})$ such that $\forall t\geq0$, $v(\bar{x},t)\leq v_e(\bar{x})$.
 
+\item Defective Matrix: A square matrix that is not diagnonizable and does not have a complete basis of eigenvectors, ie all the eigenvectors are not linearlly independent. 
+
 \item Dimension: The number of vectors in the basis (SIE 550 Week 1 Lecture Notes page 3), ie the number of linearly independent vectors that represent all the other vectors in a vector space.
 
 \item Hurowitz: When all eigenvalues of A are such that $\mathcal{R}_e(\lambda_i)<0$ A is called Hurowitz. 
@@ -114,12 +116,44 @@ $$L:E_n \rightarrow E_m \text{ \& } dim(E_n)=n$$
 then 
 $$dim(E_n)=dim({\cal N}(L))+dim({\cal R}(L))$$
 
+\subsection*{Eigenvalues}
+Eigenvalues are all the $\lambda$s that satisfy the following equation:
+$$det(A-\lambda I)=0$$
+
 \subsection*{Finding Eigenvectors For Defective Matricies}
 Given that $\lambda$ is repeated $n$ times. $v_i$ can be found with:
-$$det(A-\lambda I)\bar{v_1}=\bar{0}$$
-$$det(A-\lambda I)\bar{v_2}=\bar{v_1}$$
-$$det(A-\lambda I)\bar{v_3}=\bar{v_2}$$
+$$(A-\lambda I)\bar{v_1}=\bar{0}$$
+$$(A-\lambda I)\bar{v_2}=\bar{v_1}$$
+$$(A-\lambda I)\bar{v_3}=\bar{v_2}$$
 And so on...
+
+\subsection*{Diagonal Matrix}
+If a matrix is diagnonizable then the following is true
+$$
+D=M^{-1}AM
+$$
+
+\noindent
+Where the diagonal matrix $D$ is composed of the eigen-values $A$ such that:
+$$
+\begin{bmatrix}
+	\lambda_1 & 0 & \dots & 0 \\
+	0 & \lambda_2 & \dots & 0 \\
+	\vdots & \vdots & \ddots & \vdots \\
+	0 & 0 & \dots & \lambda_n \\
+\end{bmatrix}
+$$
+
+\noindent 
+M is composed of the eigenvectors of $A$:
+$$
+\begin{bmatrix}
+	\bar{v_1} & \bar{v_2} & \dots & \bar{v_n}
+\end{bmatrix}
+$$
+\noindent
+Where eigen-vector $\bar{v_n}$ corresponds to eigen-value $\lambda_n$.
+
 \subsection*{Finding Solution With Jordan Blocks}
 If you have a Jordan Block, a solution will be in the form:
 $$e^{J_it}=e^{(\lambda_iI+N_i)t}=e^{\lambda_it}e^{N_it}$$
