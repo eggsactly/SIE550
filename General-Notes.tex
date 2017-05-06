@@ -120,7 +120,15 @@ $$dim(E_n)=dim({\cal N}(L))+dim({\cal R}(L))$$
 Eigenvalues are all the $\lambda$s that satisfy the following equation:
 $$det(A-\lambda I)=0$$
 
+\subsection*{Eigenvectors}
+Eigenvectors are vectors $\bar{v_n}$ which satisfy the following equation. 
+$$(A-\lambda_n I)\bar{v_n}=\bar{0}$$
+
+\noindent
+The dimension of $\bar{v}$ will be one unless you are solving for the cases where there are repeated eigenvalues.
+
 \subsection*{Finding Eigenvectors For Defective Matricies}
+Often when finding eigenvectors for repeated eigenvalues to satisfy $A\bar{v}=\bar{0}$ one is presented with either two or more independent vector equations or a parameter which is independent of the others. If that fails, use the following equations:
 Given that $\lambda$ is repeated $n$ times. $v_i$ can be found with:
 $$(A-\lambda I)\bar{v_1}=\bar{0}$$
 $$(A-\lambda I)\bar{v_2}=\bar{v_1}$$
