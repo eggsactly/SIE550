@@ -17,15 +17,29 @@
 
 \begin{itemize}
 
-\item Positive Definite: For function $V(\bar{x})>0, \forall x | x\neq0$ (Stability Concepts (I), Page 9). A matrix is positive definite if all the eigen-values are greater than zero. 
+\item Basis: The set of linearly independent vectors capable of representing all vectors in the space by linear combination (SIE 550 Week 1 Lecture Notes page 3).
 
-\item Positive Semi-Definite: For function $V(\bar{x})\geq0, \forall x | x\neq0$ A matrix is positive semi-definite if all the eigen-values are greater than or equal to zero. 
+\item Basis, Canonical: A basis who's vectors are perpendicular to each other. 
 
-\item Semi-Definite Negative: For function $V(\bar{x})\leq0$ (Stability Concepts (II), Page 3). 
+\item Controllable: A dynamic system with initial condition $x(t_0)=x_0$ is said to be controllable to state $x_1$ at $t_1(>t_0)$ if there exists an input $u(t)$ such that $x(t_1)=x_1$ ({\em Linear Systems Theory}, Page 243)  .
+
+\item Decrescent: $v(\bar{x},t)$ is decrescent if $v(\bar{0},t)=0$ and if $\exists$ \\ a time-invariant positive definite function $v_e(\bar{x})$ such that $\forall t\geq0$, $v(\bar{x},t)\leq v_e(\bar{x})$.
+
+\item Defective Matrix: A square matrix that is not diagnonizable and does not have a complete basis of eigenvectors, ie all the eigenvectors are not linearlly independent. 
+
+\item Dimension: The number of vectors in the basis (SIE 550 Week 1 Lecture Notes page 3), ie the number of linearly independent vectors that represent all the other vectors in a vector space.
 
 \item Hurowitz: When all eigenvalues of A are such that $\mathcal{R}_e(\lambda_i)<0$ A is called Hurowitz. 
 
-\item Decrescent: $v(\bar{x},t)$ is decrescent if $v(\bar{0},t)=0$ and if $\exists$ \\ a time-invariant positive definite function $v_e(\bar{x})$ such that $\forall t\geq0$, $v(\bar{x},t)\leq v_e(\bar{x})$. 
+\item Inner Sum (Direct Sum): Represented with the symbol $\oplus$ is a coordinate-wise sum. For example consider the sets $a=(x_1,y_1)$ and $b=(x_2, y_2)$, $a\oplus b=(x_1+x_2,y_1+y_2)$.
+
+\item Isomorphic: Two vector spaces are {\em isomorphic} if they have the same {\em dimension}. This means isomorphism has two implications. $L:E\rightarrow F$ ($\bar{x}\rightarrow y=L\bar{x}$) such that:
+\begin{enumerate}
+	\item one-to-one $L(x_1)\neq L(x_2)$ if $x_1\neq x_2$ $\forall x, x_2 \in E_m$
+	\item onto: For any $\bar{y} \in F, \exists \bar{x} \in E$ such that $L(\bar{x})=\bar{y}$
+\end {enumerate}
+
+\item Kernel: See { \em Null Space}.
 
 \item Invariant: A set $G$ is an {\em invariant set} for a dynamic system if every system trajectory which starts in $G$ stays in $G$ for all future times. (Stability concepts (II) pages 1)
 
@@ -33,26 +47,169 @@
 
 \item Non-Singular: A matrix is non-singular if an inverse exists for the matrix. A square matrix is non-singular {\em if-and-only-if} its determinant is non-zero.
 
-\item Inner Sum (Direct Sum): Represented with the symbol $\oplus$ is a coordinate-wise sum. For example consider the sets $a=(x_1,y_1)$ and $b=(x_2, y_2)$, $a\oplus b=(x_1+x_2,y_1+y_2)$.
+\item Null Space (Kernel): The {\em Null Space} of a matrix ${\cal N}(A)$ is the set of vectors $\bar{x}$ where $A\bar{x}=\bar{0}$
 
-\item Span: The set of all linear combinations of vectors in a set.
+\item Positive Definite: For function $V(\bar{x})>0, \forall x | x\neq0$ (Stability Concepts (I), Page 9). A matrix is positive definite if all the eigen-values are greater than zero. 
 
-\item Null Space: The {\em Null Space} of a matrix ${\cal N}(A)$ is the set of vectors $\bar{x}$ where $A\bar{x}=\bar{0}$
+\item Positive Semi-Definite: For function $V(\bar{x})\geq0, \forall x | x\neq0$ A matrix is positive semi-definite if all the eigen-values are greater than or equal to zero. 
 
-\item Range: The {\em Range} of a matrix ${\cal R}(A)$ is the span of all the column vectors in matrix $A$.
+\item Range: The {\em Range} of a matrix ${\cal R}(A)$ is the span of all the linearly independent column vectors in matrix $A$.
 
-\item Basis: The basis of a set of vectors is a subset where all vectors of the set can be represented as a linear combination of vectors in the subset. 
+\item Rank: The maximum number of linearly independent column (or row) vectors in a matrix. ({\em Linear Systems Theory}, Page 257) It is the { \em Dimension} of the {\em Range} (SIE 550 Week 1 Lecture Notes page 6).
 
-\item Dimension: The number of vectors in the basis.
+\item Semi-Definite Negative: For function $V(\bar{x})\leq0$ (Stability Concepts (II), Page 3). 
 
-\item Rank: The maximum number of linearly independent column (or row) vectors in a matrix. ({\em Linear Systems Theory}, Page 257)
+\item Similar: Matricies $A$ and $B$ are similar if $\exists P | B=P^{-1}AP$.
 
-\item Controllable: A dynamic system with initial condition $x(t_0)=x_0$ is said to be controllable to state $x_1$ at $t_1(>t_0)$ if there exists an input $u(t)$ such that $x(t_1)=x_1$ ({\em Linear Systems Theory}, Page 243)  . 
+\item Span: The set of all linear combinations of vectors in a set. 
 
 \item Transition Matrix (Fundamental Matrix): $\phi(t,\tau)=e^{A(t-\tau)}$
 
 \end{itemize}
 
+\newpage
+\section*{Basic Linear Algebra}
+\subsection*{Row Echelon Form}
+A matrix is in Row Echelon Form if:
+\begin{itemize}
+	\item The first non-zero element in each row is a 1
+	\item The Each leading entry is to the right of the previous row
+	\item Rows with all zero elements are below rows having non-zero elements
+\end{itemize}
+\noindent
+The following matrix is an example of row echelon form:
+$$
+\begin{bmatrix}
+	1 & 2 & -1 & 0 & 5 \\
+	0 & 0 & 1 & 3 & 1 \\
+	0 & 0 & 0 & 1 & -3 
+\end{bmatrix} 
+$$
+
+\subsection*{Row Reduced Echelon Form}
+A matrix is in Row Reduced Echelon Form if:
+\begin{itemize}
+	\item The matrix meets the conditions of Row Echelon Form
+	\item Every leading one is the only non-zero value in its column
+\end{itemize}
+\noindent
+The following matrix is an example of row reduced echelon form:
+$$
+\begin{bmatrix}
+	1 & 2 & 0 & 0 & 15 \\
+	0 & 0 & 1 & 0 & 10 \\
+	0 & 0 & 0 & 1 & -3 
+\end{bmatrix} 
+$$
+
+\noindent
+Matricies can be put in Row Echelon Form and Row Reduced Echelon form using Gauss Elimination.
+
+\subsection*{Finding Rank}
+To find the {\em Rank} of a matrix (the {\em dimension} of the {\em range}) put the matrix in row echelon form using Gauss Elmination and the number of columns with a leading 1 is the {\em Rank}
+
+\subsection*{Finding Dimension of Null Space}
+To find the number of linearly independent vectors in the null space, find the rank of the matrix, subtract the number of columns in the matrix by the rank, that is the dimension of the null space, the number of linearly independent vectors which allows the linear equation to be zero.
+
+This is based on the theorem on page 7 of the SIE 550 Week 1 lecture notes where:
+$$L:E_n \rightarrow E_m \text{ \& } dim(E_n)=n$$
+then 
+$$dim(E_n)=dim({\cal N}(L))+dim({\cal R}(L))$$
+
+\subsection*{Eigenvalues}
+Eigenvalues are all the $\lambda$s that satisfy the following equation:
+$$det(A-\lambda I)=0$$
+
+\subsection*{Eigenvectors}
+Eigenvectors are vectors $\bar{v_n}$ which satisfy the following equation. 
+$$(A-\lambda_n I)\bar{v_n}=\bar{0}$$
+
+\noindent
+The dimension of $\bar{v}$ will be one unless you are solving for the cases where there are repeated eigenvalues.
+
+\subsection*{Finding Eigenvectors For Defective Matricies}
+Often when finding eigenvectors for repeated eigenvalues to satisfy $A\bar{v}=\bar{0}$ one is presented with either two or more independent vector equations or a parameter which is independent of the others. If that fails, use the following equations:
+Given that $\lambda$ is repeated $n$ times. $v_i$ can be found with:
+$$(A-\lambda I)\bar{v_1}=\bar{0}$$
+$$(A-\lambda I)\bar{v_2}=\bar{v_1}$$
+$$(A-\lambda I)\bar{v_3}=\bar{v_2}$$
+And so on...
+
+\subsection*{Diagonal Matrix}
+If a matrix is diagnonizable then the following is true
+$$
+D=M^{-1}AM
+$$
+
+\noindent
+Where the diagonal matrix $D$ is composed of the eigen-values $A$ such that:
+$$
+\begin{bmatrix}
+	\lambda_1 & 0 & \dots & 0 \\
+	0 & \lambda_2 & \dots & 0 \\
+	\vdots & \vdots & \ddots & \vdots \\
+	0 & 0 & \dots & \lambda_n \\
+\end{bmatrix}
+$$
+
+\noindent 
+M is composed of the eigenvectors of $A$:
+$$
+\begin{bmatrix}
+	\bar{v_1} & \bar{v_2} & \dots & \bar{v_n}
+\end{bmatrix}
+$$
+\noindent
+Where eigen-vector $\bar{v_n}$ corresponds to eigen-value $\lambda_n$.
+
+\subsection*{Finding Solution With Jordan Blocks}
+If you have a Jordan Block, a solution will be in the form:
+$$e^{J_it}=e^{(\lambda_iI+N_i)t}=e^{\lambda_it}e^{N_it}$$
+Where $e^{\lambda_it}$ is a scalar value and $e^{N_it}$ is a matrix. $N_i$ is in the form:
+
+$$
+N_i=\begin{bmatrix} 
+0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 1 & \dots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0\\
+\end{bmatrix}
+$$
+
+$e^{N_it}$ can be found with the following equation.
+
+$$e^{N_it}=\begin{bmatrix} 1 & t & \frac{t^2}{2} & \dots & \frac{t^{n-1}}{(n-1)!} \\
+0 & 1 & t & \dots & \frac{t^{n-2}}{(n-2)!} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & 1 & t \\
+0 & 0 & 0 & 0 & 1\\
+\end{bmatrix}$$ 
+
+\section*{Linearization}
+A non-linear system of equations cannot be analyzed with a system of linear equations, but it can be {\em linearized} around the equilibrium points into a set of linear equations. \\
+Equilibrium points are all places where all derivatives of all functions are zero. \\
+Steps linearizing a system:
+\begin{enumerate}
+	\item Find all equilibrium points. Find all $\bar{x}$ where $\dot{\bar{f}}(\bar{x}) = \bar{0}$
+	\item Find the linearized matrix. 
+	$A=\begin{bmatrix}
+		\frac{\partial f_1(\bar{x})}{\partial x_1} & \frac{\partial f_1(\bar{x})}{\partial x_2} \\
+		\frac{\partial f_2(\bar{x})}{\partial x_1} & \frac{\partial f_2(\bar{x})}{\partial x_2}
+	\end{bmatrix}$
+	\item Find the behavior of each equilibrium point by plugging it into the linearized matrix.
+\end{enumerate}
+
+The behavior of the equilibrium point depends on the eigenvalues of the matrix for the point. 
+
+\begin{itemize}
+	\item All eigenvalues real and negative: Stable Node (path goes directly towards equilibrium point)
+	\item At-least one eigenvalue is positive and all are real: Saddle (unstable)
+	\item All eigenvalues are real and positive: Unstable Node (path goes directly away from equilibrium point)
+	\item Eigenvalues are complex and real part is negative: Stable Focus (path spirals towards equilibrium point).
+	\item Eigenvalues are complex and real part is positive: Unstable Focus (path spirals away from equilibrium point).
+	\item Eigenvalues are purely imaginary: Center Equilibrium Point (path goes around equilibrium point but does not go towards or away from it).
+\end{itemize}
 
 \newpage
 \section*{Stability Theorems}
@@ -140,37 +297,6 @@
 
 \end{itemize}
 
-\section*{Jordan Form}
-\subsection*{Finding Eigenvectors For Defective Matricies}
-Given that $\lambda$ is repeated $n$ times. $v_i$ can be found with:
-$$det(A-\lambda I)\bar{v_1}=\bar{0}$$
-$$det(A-\lambda I)\bar{v_2}=\bar{v_1}$$
-$$det(A-\lambda I)\bar{v_3}=\bar{v_2}$$
-And so on...
-\subsection*{Finding Solution With Jordan Blocks}
-If you have a Jordan Block, a solution will be in the form:
-$$e^{J_it}=e^{(\lambda_iI+N_i)t}=e^{\lambda_it}e^{N_it}$$
-Where $e^{\lambda_it}$ is a scalar value and $e^{N_it}$ is a matrix. $N_i$ is in the form:
-
-$$
-N_i=\begin{bmatrix} 
-0 & 1 & 0 & \dots & 0 \\
-0 & 0 & 1 & \dots & 0 \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 0 & 0 & 0\\
-\end{bmatrix}
-$$
-
-$e^{N_it}$ can be found with the following equation.
-
-$$e^{N_it}=\begin{bmatrix} 1 & t & \frac{t^2}{2} & \dots & \frac{t^{n-1}}{(n-1)!} \\
-0 & 1 & t & \dots & \frac{t^{n-2}}{(n-2)!} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & 0 & 1 & t \\
-0 & 0 & 0 & 0 & 1\\
-\end{bmatrix}$$ 
-
 \newpage
 \section*{Solutions to Time Varying Linear Systems (Non-Autonomous)}
 Consider systems in the form 
@@ -256,7 +382,8 @@ is controllable.
 \subsection*{Theorem 5.4 ({\em Linear Systems Theory} Page. 258)}
 The time-invariant continuous linear system is completely controllable if and only if the rank of the controllability matrix $K$ equals n.
 $$K=(B,AB,A^2B,\dots,A^{n-1}B)$$
-
+$rank(K)=n$ $\rightarrow$ Fully controllable (completly).
+ 
 
 \newpage
 \section*{Observability}
@@ -287,7 +414,7 @@ CA^2 \\
 CA^{m-1}
 \end{bmatrix}
 $$
-
+$rank(L)=n$ $\rightarrow$ Fully observable.
 \subsection*{Theorem 6.4 ({\em Linear Systems Theory} Page. 302)}
 Assume that the rank r of matrix $L$ is less than n. Then there exists a nonsingular matrix $T$ such that
 
@@ -325,7 +452,7 @@ It is possible to determine $x_0$ within an additive constant vector, which is i
 \subsection*{Theorem 6.7 ({\em Linear Systems Theory} Page. 304)}
 The time-invariant discrete linear system is observable at arbitrary $t_1\geq n$ if and only if the rank of the observability matrix $L$ equals n.
 
-\subsection*{Duality}
+\subsection*{Primal vs. Dual ({\em SIE550\_FinalReview} Page 2)}
 The {\em dual} of the time-invariant continuous system
 $$P_c:\dot{\bar{x}}=A\bar{x}+B\bar{u}$$
 $$y=C\bar{x}$$
@@ -333,6 +460,78 @@ is given as
 $$D_c:\dot{\bar{z}}=A^T\bar{z}+C^T\bar{v}$$
 $$w=B^T\bar{z}$$
 
+P is completely controllable $\leftrightarrow$ D is completely observable.
+$$K_p^T=L_D$$
 
+\section*{Canonical Forms}
+
+\subsection*{Computed Form}
+Assume that system $(A, b, c^T)$ is completely controllable, then it can be transformed into an $(\tilde{A}, \tilde{b}, \tilde{c}^T)$-system, where \\
+$\tilde{A}=
+\begin{pmatrix}
+	0 & 0 & 0 & \dots & 0 & a_0 \\
+	1 & 0 & 0 & \dots & 0 & a_1 \\
+	0 & 1 & 0 & \dots & 0 & a_2 \\
+	\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+	0 & 0 & 0 & \dots & 1 & a_{n-1} 
+\end{pmatrix}$ and 
+$\tilde{b}=\begin{pmatrix}
+1\\
+0\\
+0\\
+\vdots\\
+0
+\end{pmatrix}$
+
+$$K=(b,Ab,A^2b,\dots,A^{n-1}b)$$
+$$T = K^{-1}$$
+$$\tilde{A}=TAT^{-1}$$
+$$\tilde{b}=Tb$$
+$$\tilde{c}^T=C^TT^{-1}$$
+
+\subsection*{Assembled Form}
+$\tilde{A}=
+\begin{pmatrix}
+	0 & 1 & 0 & \dots & 0 \\
+	0 & 0 & 1 & \dots & 0 \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	0 & 0 & 0 & \dots & 1 \\
+	a_0 & a_1 & a_2 & \dots & a_{n-1} 
+\end{pmatrix}$ and 
+$\tilde{b}=\begin{pmatrix}
+0\\
+0\\
+\vdots\\
+0\\
+1
+\end{pmatrix}$
+
+$$K=(b,Ab,A^2b,\dots,A^{n-1}b)$$
+
+$$\begin{pmatrix}
+	t_1^T\\
+	t_2^T\\
+	\vdots\\
+	t_n^T
+\end{pmatrix} = K^{-1}$$
+
+$$T=\begin{pmatrix}
+	t_n^T\\
+	t_n^TA\\
+	t_n^TA^2\\
+	\vdots\\
+	t_n^TA^{n-1}\\
+\end{pmatrix}$$
+
+$$\tilde{A}=TAT^{-1}$$
+$$\tilde{b}=Tb$$
+$$\tilde{c}^T=C^TT^{-1}$$
+
+\section*{Estimation and Design}
+\subsection*{Theorem 9.1}
+To find the matrix $K$ follow the algorithm below
+\begin{itemize}
+	\item Find the cannonical form of the system. 
+\end{itemize}
 
 \end{document}
