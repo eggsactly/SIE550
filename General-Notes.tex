@@ -186,6 +186,31 @@ $$e^{N_it}=\begin{bmatrix} 1 & t & \frac{t^2}{2} & \dots & \frac{t^{n-1}}{(n-1)!
 0 & 0 & 0 & 0 & 1\\
 \end{bmatrix}$$ 
 
+\section*{Linearization}
+A non-linear system of equations cannot be analyzed with a system of linear equations, but it can be {\em linearized} around the equilibrium points into a set of linear equations. \\
+Equilibrium points are all places where all derivatives of all functions are zero. \\
+Steps linearizing a system:
+\begin{enumerate}
+	\item Find all equilibrium points. Find all $\bar{x}$ where $\dot{\bar{f}}(\bar{x}) = \bar{0}$
+	\item Find the linearized matrix. 
+	$A=\begin{bmatrix}
+		\frac{\partial f_1(\bar{x})}{\partial x_1} & \frac{\partial f_1(\bar{x})}{\partial x_2} \\
+		\frac{\partial f_2(\bar{x})}{\partial x_1} & \frac{\partial f_2(\bar{x})}{\partial x_2}
+	\end{bmatrix}$
+	\item Find the behavior of each equilibrium point by plugging it into the linearized matrix.
+\end{enumerate}
+
+The behavior of the equilibrium point depends on the eigenvalues of the matrix for the point. 
+
+\begin{itemize}
+	\item All eigenvalues real and negative: Stable Node (path goes directly towards equilibrium point)
+	\item At-least one eigenvalue is positive and all are real: Saddle (unstable)
+	\item All eigenvalues are real and positive: Unstable Node (path goes directly away from equilibrium point)
+	\item Eigenvalues are complex and real part is negative: Stable Focus (path spirals towards equilibrium point).
+	\item Eigenvalues are complex and real part is positive: Unstable Focus (path spirals away from equilibrium point).
+	\item Eigenvalues are purely imaginary: Center Equilibrium Point (path goes around equilibrium point but does not go towards or away from it).
+\end{itemize}
+
 \newpage
 \section*{Stability Theorems}
 \subsection*{Stability of Autonomous Systems, $\dot{\bar{x}}=\bar{f}(\bar{x})$}
