@@ -137,7 +137,9 @@ And so on...\\
 \noindent
 Eigenvectors of A can be found with the following Matlab command:\\
 $[V,D] = eig(A)$\\
-Where V is a matrix made of the right eigenvectors of the matrix. 
+Where V is a matrix made of the right eigenvectors of the matrix. \\
+\noindent
+{\em Note}: No single approach above works all time. You must be cognizant of whether the eigenvectors makes sense for the system being solved.
 
 \subsection*{Diagonal Matrix}
 If a matrix is diagnonizable then the following is true
@@ -159,15 +161,24 @@ $$
 \noindent 
 M is composed of the eigenvectors of $A$:
 $$
+M = 
 \begin{bmatrix}
 	\bar{v_1} & \bar{v_2} & \dots & \bar{v_n}
 \end{bmatrix}
 $$
 \noindent
-Where eigen-vector $\bar{v_n}$ corresponds to eigenvalue $\lambda_n$.
+Where eigenvector $\bar{v_n}$ corresponds to eigenvalue $\lambda_n$.
 
-\subsection*{Finding Solution With Jordan Blocks}
+\subsection*{Finding Solution for Non-diagonizable Matrices}
+If you want to find the solution to 
+$$\dot{\bar{x}}=A\bar{x}$$
+And A is diagonizable, the solution is:
+$$\bar{x}(t)=e^{At}x_0=Me^{Dt}M^{-1}x_0$$
+
+\subsection*{Finding Solution for Non-diagonizable Matrices}
 If you have a Jordan Block, a solution will be in the form:
+$$\bar{x}(t)=e^{At}x_0=Me^{Jt}M^{-1}x_0$$
+$e^{Jt}$ can be decomposed as:
 $$e^{J_it}=e^{(\lambda_iI+N_i)t}=e^{\lambda_it}e^{N_it}$$
 Where $e^{\lambda_it}$ is a scalar value and $e^{N_it}$ is a matrix. $N_i$ is in the form:
 
@@ -190,6 +201,26 @@ $$e^{N_it}=\begin{bmatrix} 1 & t & \frac{t^2}{2} & \dots & \frac{t^{n-1}}{(n-1)!
 0 & 0 & 0 & 0 & 1\\
 \end{bmatrix}$$ 
 
+Example: If your J matrix looks like this:
+$$\begin{bmatrix}
+-1 & 0 & 0 \\
+0 & -2 & 1 \\
+0 & 0 & -2
+\end{bmatrix}$$
+
+Then:
+$$e^{\lambda_it}e^{N_it} = 
+\begin{bmatrix}
+e^{-t} & 0 & 0 \\
+0 & e^{-2t} & 0 \\
+0 & 0 & e^{-2t}
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & t \\
+0 & 0 & 1
+\end{bmatrix}
+$$
 \section*{Linearization}
 A non-linear system of equations cannot be analyzed with a system of linear equations, but it can be {\em linearized} around the equilibrium points into a set of linear equations. \\
 Equilibrium points are all places where all derivatives of all functions are zero. \\
