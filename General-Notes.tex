@@ -529,7 +529,7 @@ The time-invariant discrete linear system is observable at arbitrary $t_1\geq n$
 	\item Find $rank(M(t_0,t_1))$. If it equals $n$, then the system is completely observable; otherwise it is not. 
 \end{enumerate}
 
-\subsection*{Primal vs. Dual ({\em SIE550\_FinalReview} Page 2)}
+\subsection*{Primal vs. Dual ({\em Linear Systems Theory} Page. 307)}
 The {\em dual} of the time-invariant continuous system
 $$P_c:\dot{\bar{x}}=A\bar{x}+B\bar{u}$$
 $$y=C\bar{x}$$
@@ -537,13 +537,15 @@ is given as
 $$D_c:\dot{\bar{z}}=A^T\bar{z}+C^T\bar{v}$$
 $$w=B^T\bar{z}$$
 
+\noindent
 P is completely controllable $\leftrightarrow$ D is completely observable.
 $$K_p^T=L_D$$
 
 \section*{Canonical Forms}
 
-\subsection*{Computed Form}
+\subsection*{Controllable Canonical Form 7.11}
 Assume that system $(A, b, c^T)$ is completely controllable, then it can be transformed into an $(\tilde{A}, \tilde{b}, \tilde{c}^T)$-system, where \\
+\begin{center}
 $\tilde{A}=
 \begin{pmatrix}
 	0 & 0 & 0 & \dots & 0 & a_0 \\
@@ -559,6 +561,7 @@ $\tilde{b}=\begin{pmatrix}
 \vdots\\
 0
 \end{pmatrix}$
+\end{center}
 
 $$K=(b,Ab,A^2b,\dots,A^{n-1}b)$$
 $$T = K^{-1}$$
@@ -566,7 +569,9 @@ $$\tilde{A}=TAT^{-1}$$
 $$\tilde{b}=Tb$$
 $$\tilde{c}^T=C^TT^{-1}$$
 
-\subsection*{Assembled Form}
+\subsection*{Controllable Canonical Form 7.14}
+Assume that system $(A, b, c^T)$ is completely controllable, then it can be transformed into an $(\tilde{A}, \tilde{b}, \tilde{c}^T)$-system, where \\
+\begin{center}
 $\tilde{A}=
 \begin{pmatrix}
 	0 & 1 & 0 & \dots & 0 \\
@@ -582,6 +587,7 @@ $\tilde{b}=\begin{pmatrix}
 0\\
 1
 \end{pmatrix}$
+\end{center}
 
 $$K=(b,Ab,A^2b,\dots,A^{n-1}b)$$
 
@@ -604,11 +610,69 @@ $$\tilde{A}=TAT^{-1}$$
 $$\tilde{b}=Tb$$
 $$\tilde{c}^T=C^TT^{-1}$$
 
+\subsection*{Observable Canonical Form 7.18}
+Assume that system $(A, b, c^T)$ is completely controllable, then it can be transformed into an $(\tilde{A}, \tilde{b}, \tilde{c}^T)$-system, where \\
+\begin{center}
+$\tilde{A}=
+\begin{pmatrix}
+	0 & 1 & 0 & \dots & 0 \\
+	0 & 0 & 1 & \dots & 0 \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	0 & 0 & 0 & \dots & 1 \\
+	a_0 & a_1 & a_2 & \dots & a_{n-1} 
+\end{pmatrix}$ and 
+$\tilde{c}^T=\begin{pmatrix}
+1 & 0 & \dots & 0 & 0
+\end{pmatrix}$
+\end{center}
+
+\subsection*{Observable Canonical Form 7.19}
+Assume that system $(A, b, c^T)$ is completely controllable, then it can be transformed into an $(\tilde{A}, \tilde{b}, \tilde{c}^T)$-system, where \\
+\begin{center}
+$\tilde{A}=
+\begin{pmatrix}
+	0 & 0 & 0 & \dots & 0 & a_0 \\
+	1 & 0 & 0 & \dots & 0 & a_1 \\
+	0 & 1 & 0 & \dots & 0 & a_2 \\
+	\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+	0 & 0 & 0 & \dots & 1 & a_{n-1} 
+\end{pmatrix}$ and 
+$\tilde{c}^T=\begin{pmatrix}
+0 & 0 & \dots & 0 & 1
+\end{pmatrix}$
+\end{center}
+
+\subsection*{General Algorithm for Finding Observability Canonical Forms}
+{\em Linear Systems Theory} Page 343.
+\begin{enumerate}
+	\item Determine the dual system.
+	\item Find the corresponding controllability canonical form of the dual.
+	\item Compute the dual of the resulting canonical form.
+\end{enumerate}
+
+\newpage
 \section*{Estimation and Design}
 \subsection*{Theorem 9.1}
-To find the matrix $K$ follow the algorithm below
+To find the vector $\bar{k}$ follow the algorithm below
 \begin{itemize}
-	\item Find the cannonical form of the system. 
+	\item Transform system $\dot{\bar{x}}=A\bar{x}+b\bar{u}$ to controllability canonical form (7.14).
+	\item Computer vector $\tilde{k}^T$ by using the equation: $k_1=-a_0-p_0, k_2=-a_1-p_1, \dots, k_n=-a_{n-1}-p_{n-1}$ (p is coefficients in the polynomial $\varphi(\lambda)$).
+	\item Determine vector $\bar{k}^T=\tilde{k}^TT$
 \end{itemize}
+
+\subsection*{Constructing an Observer}
+The Observer has the mathematical expression ({\em Linear Systems Theory} Page 433)
+$$\dot{\bar{z}}=(A+KC)\bar{z}+B\bar{u}-K\bar{y}$$
+
+\noindent
+Error can be calculated from:
+$$\dot{\bar{x_e}}=(A+KC)\bar{x_e}$$
+
+\noindent
+The polynomial can be calculated from this equation:
+$$\varphi(\lambda)=det(A+KC-\lambda I)$$
+
+\noindent
+If the real parts of all the roots of this polynomial are negative then the system is completely observable. 
 
 \end{document}
