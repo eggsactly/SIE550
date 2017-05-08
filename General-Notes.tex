@@ -234,6 +234,22 @@ $$\bar{x}(t)=e^{At}\bar{x}(0)\rightarrow \Phi(t,0)=e^{At}$$
 	\item $\Phi^{-1}(t,\tau)=\Phi(\tau,t)$
 \end{itemize}
 
+\subsection*{Finding Solution with a Taylor Series}
+$$e^{At} = \sum_{j=0}^\infty \frac{t^j}{j!}A^j$$
+\noindent
+Remember: $A^0 = I$
+$$e^{At} = I+\sum_{j=1}^\infty \frac{t^j}{j!}A^j$$
+
+A Taylor Series solution sometimes works because you can get a case where the matrix A resolves to a matrix filled with zeros in a finite number of iterations or are able to either find a pattern that converges.
+
+\subsubsection*{Examples of Infinite Series Convergence}
+The following could appear as solutions for matrices you are trying to solve
+$$\sum_{k=0}^\infty \frac{z^k}{k!} = e^z\,\!$$
+$$\sum_{k=0}^\infty k\frac{z^k}{k!} = z e^z\,\!$$
+$$\sum_{k=0}^\infty \frac{(-1)^k z^{2k+1}}{(2k+1)!}=\sin z\,\!$$
+$$\sum_{k=0}^\infty \frac{(-1)^k z^{2k}}{(2k)!}=\cos z\,\!$$
+$$\sum_{k=1}^\infty \frac{(-1)^{k-1}(2^{2k}-1)2^{2k}B_{2k}z^{2k-1}}{(2k)!}=\tan z, |z|<\frac{\pi}{2}\,\!$$
+
 \subsection*{Finding Solution for Upper Triangular Matrices}
 If $A(t)$ is a triangular matrix:
 
