@@ -125,9 +125,9 @@ Eigenvectors are vectors $\bar{v_n}$ which satisfy the following equation.
 $$(A-\lambda_n I)\bar{v_n}=\bar{0}$$
 
 \noindent
-The dimension of $\bar{v}$ will be one unless you are solving for the cases where there are repeated eigenvalues.
+The dimension of $\bar{v}$, for a given $\lambda$, will be one unless you are solving for the cases where there are repeated eigenvalues.
 
-\subsection*{Finding Eigenvectors For Defective Matricies}
+\subsection*{Finding Eigenvectors For Defective Matrices}
 Often when finding eigenvectors for repeated eigenvalues to satisfy $A\bar{v}=\bar{0}$ one is presented with either two or more independent vector equations or a parameter which is independent of the others. If that fails, use the following equations:
 Given that $\lambda$ is repeated $n$ times. $v_i$ can be found with:
 $$(A-\lambda I)\bar{v_1}=\bar{0}$$
@@ -142,7 +142,7 @@ D=M^{-1}AM
 $$
 
 \noindent
-Where the diagonal matrix $D$ is composed of the eigen-values $A$ such that:
+Where the diagonal matrix $D$ is composed of the eigenvalues $A$ such that:
 $$
 \begin{bmatrix}
 	\lambda_1 & 0 & \dots & 0 \\
@@ -160,7 +160,7 @@ $$
 \end{bmatrix}
 $$
 \noindent
-Where eigen-vector $\bar{v_n}$ corresponds to eigen-value $\lambda_n$.
+Where eigen-vector $\bar{v_n}$ corresponds to eigenvalue $\lambda_n$.
 
 \subsection*{Finding Solution With Jordan Blocks}
 If you have a Jordan Block, a solution will be in the form:
