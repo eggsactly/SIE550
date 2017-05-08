@@ -664,15 +664,15 @@ To find the vector $\bar{k}$ follow the algorithm below
 
 \subsection*{Constructing an Observer}
 The Observer has the mathematical expression ({\em Linear Systems Theory} Page 433)
-$$\dot{\bar{z}}=(A+KC)\bar{z}+B\bar{u}-K\bar{y}$$
+$$\dot{\bar{z}}=(A+\bar{k}C)\bar{z}+B\bar{u}-K\bar{y}$$
 
 \noindent
 Error can be calculated from:
-$$\dot{\bar{x_e}}=(A+KC)\bar{x_e}$$
+$$\dot{\bar{x_e}}=(A+\bar{k}C)\bar{x_e}$$
 
 \noindent
 The polynomial can be calculated from this equation:
-$$\varphi(\lambda)=det(A+KC-\lambda I)$$
+$$\varphi(\lambda)=det(A+\bar{k}C-\lambda I)$$
 
 \noindent
 If the real parts of all the roots of this polynomial are negative then the system is completely observable. 
