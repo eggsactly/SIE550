@@ -522,6 +522,13 @@ It is possible to determine $x_0$ within an additive constant vector, which is i
 \subsection*{Theorem 6.7 ({\em Linear Systems Theory} Page. 304)}
 The time-invariant discrete linear system is observable at arbitrary $t_1\geq n$ if and only if the rank of the observability matrix $L$ equals n.
 
+\subsection*{Algorithm for Determining Observability ({\em Linear Systems Theory} Page. 297)}
+\begin{enumerate}
+	\item Compute the fundamental matrix $\phi(t,\tau)$
+	\item Determine matrix $M(t_0,t_1)$
+	\item Find $rank(M(t_0,t_1))$. If it equals $n$, then the system is completely observable; otherwise it is not. 
+\end{enumerate}
+
 \subsection*{Primal vs. Dual ({\em SIE550\_FinalReview} Page 2)}
 The {\em dual} of the time-invariant continuous system
 $$P_c:\dot{\bar{x}}=A\bar{x}+B\bar{u}$$
