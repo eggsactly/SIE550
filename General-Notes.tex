@@ -13,6 +13,10 @@
 }
 \begin{document}
 
+\title{SIE 550 Comprehensive Notes}
+\date{May 7, 2017}
+\maketitle
+
 \section*{Definitions}
 
 \begin{itemize}
@@ -169,14 +173,98 @@ $$
 \noindent
 Where eigenvector $\bar{v_n}$ corresponds to eigenvalue $\lambda_n$.
 
-\subsection*{Finding Solution for Non-diagonizable Matrices}
+\newpage
+\section*{Linearization}
+A non-linear system of equations cannot be analyzed with a system of linear equations, but it can be {\em linearized} around the equilibrium points into a set of linear equations. \\
+Equilibrium points are all places where all derivatives of all functions are zero. \\
+Steps linearizing a system:
+\begin{enumerate}
+	\item Find all equilibrium points. Find all $\bar{x}$ where $\dot{\bar{f}}(\bar{x}) = \bar{0}$
+	\item Find the linearized matrix. 
+	$A=\begin{bmatrix}
+		\frac{\partial f_1(\bar{x})}{\partial x_1} & \frac{\partial f_1(\bar{x})}{\partial x_2} \\
+		\frac{\partial f_2(\bar{x})}{\partial x_1} & \frac{\partial f_2(\bar{x})}{\partial x_2}
+	\end{bmatrix}$
+	\item Find the behavior of each equilibrium point by plugging it into the linearized matrix.
+\end{enumerate}
+
+\noindent
+The behavior of the equilibrium point depends on the eigenvalues of the matrix for the point. 
+
+\begin{itemize}
+	\item All eigenvalues real and negative: Stable Node (path goes directly towards equilibrium point)
+	\item At-least one eigenvalue is positive and all are real: Saddle (unstable)
+	\item All eigenvalues are real and positive: Unstable Node (path goes directly away from equilibrium point)
+	\item Eigenvalues are complex and real part is negative: Stable Focus (path spirals towards equilibrium point).
+	\item Eigenvalues are complex and real part is positive: Unstable Focus (path spirals away from equilibrium point).
+	\item Eigenvalues are purely imaginary: Center Equilibrium Point (path goes around equilibrium point but does not go towards or away from it).
+\end{itemize}
+
+\section*{Solutions to Time Varying Linear Systems (Non-Autonomous)}
+Consider systems in the form 
+$$ 
+\begin{cases}
+\dot{\bar{x}}=A(t)\bar{x} \\
+\bar{x}(t_0)=\bar{x}_0
+\end{cases}
+$$
+where $\{a_{ij}(t)\}$ are continuous on $[t_0,t_0+T]$ \\
+
+\noindent
+The solution is in the form (systems theory week 3 page 17):
+$$\bar{x}(t)=\Phi(t,t_0)\bar{x}_0$$
+
+\noindent
+where the {\em Transition Matrix} is in the form:
+
+$$ \Phi(t,t_0) = I + \int_{t_0}^t A(\tau_1)d\tau_1+\int_{t_0}^tA(\tau_1)\int_{t_0}^{\tau_1}A(\tau_2)d\tau_2d\tau_1+\dots$$
+
+\noindent
+Note that for {\em Linear Time Invariant} Systems $\dot{\bar{x}}=A\bar{x}$ 
+$$\bar{x}(t)=e^{At}\bar{x}(0)\rightarrow \Phi(t,0)=e^{At}$$
+
+\subsection*{Properties of $ \Phi(t,\tau)$}
+
+\begin{itemize}
+	\item $\Phi(t,t) = I$
+	\item $\frac{\partial}{\partial t}\Phi(t,\tau)=A(t)\Phi(t,\tau)$
+	\item $\frac{\partial}{\partial t}\Phi(t,\tau)=-\Phi(t,\tau)A(t)$
+	\item $\Phi(t,\tau)=\Phi(t,\sigma)\Phi(\sigma,\tau)$
+	\item $\Phi(t,\tau)$ is non-singular for all t, $\tau$
+	\item $\Phi^{-1}(t,\tau)=\Phi(\tau,t)$
+\end{itemize}
+
+\subsection*{Finding Solution for Upper Triangular Matrices}
+If $A(t)$ is a triangular matrix:
+
+$$ A(t) = 
+\begin{bmatrix}
+a_{11}(t) & a_{12}(t) & a_{13}(t) \\
+0 & a_{22}(t) & a_{23}(t) \\
+0 & 0& a_{33}(t)\\
+\end{bmatrix}
+$$
+Then so too is $\Phi(t,t_0)$:
+$$\Phi(t,t_0) = 
+\begin{bmatrix}
+\phi_{11}(t,t_0) & \phi_{12}(t,t_0) & \phi_{13}(t,t_0)\\
+0 & \phi_{22}(t,t_0) & \phi_{23}(t,t_0) \\
+0 & 0 & \phi_{33}(t,t_0)\\
+\end{bmatrix}
+$$
+
+\noindent
+The diagonal transition functions can be found with this equation:
+$$\phi_{ii}(t,t_0)=e^{\int_{t_0}^ta_{ii}(\tau)d\tau}$$
+
+\subsection*{Finding Solution for Diagonizable Matrices}
 If you want to find the solution to 
 $$\dot{\bar{x}}=A\bar{x}$$
 And A is diagonizable, the solution is:
 $$\bar{x}(t)=e^{At}x_0=Me^{Dt}M^{-1}x_0$$
 
-\subsection*{Finding Solution for Non-diagonizable Matrices}
-If you have a Jordan Block, a solution will be in the form:
+\subsection*{Finding Solution for Matrices in Jordan Form}
+If you have a matrix that is not diagonizable but can be put in terms of Jordan Blocks, a solution will be in the form:
 $$\bar{x}(t)=e^{At}x_0=Me^{Jt}M^{-1}x_0$$
 $e^{Jt}$ can be decomposed as:
 $$e^{J_it}=e^{(\lambda_iI+N_i)t}=e^{\lambda_it}e^{N_it}$$
@@ -202,7 +290,7 @@ $$e^{N_it}=\begin{bmatrix} 1 & t & \frac{t^2}{2} & \dots & \frac{t^{n-1}}{(n-1)!
 \end{bmatrix}$$ 
 
 Example: If your J matrix looks like this:
-$$\begin{bmatrix}
+$$J=\begin{bmatrix}
 -1 & 0 & 0 \\
 0 & -2 & 1 \\
 0 & 0 & -2
@@ -221,30 +309,6 @@ e^{-t} & 0 & 0 \\
 0 & 0 & 1
 \end{bmatrix}
 $$
-\section*{Linearization}
-A non-linear system of equations cannot be analyzed with a system of linear equations, but it can be {\em linearized} around the equilibrium points into a set of linear equations. \\
-Equilibrium points are all places where all derivatives of all functions are zero. \\
-Steps linearizing a system:
-\begin{enumerate}
-	\item Find all equilibrium points. Find all $\bar{x}$ where $\dot{\bar{f}}(\bar{x}) = \bar{0}$
-	\item Find the linearized matrix. 
-	$A=\begin{bmatrix}
-		\frac{\partial f_1(\bar{x})}{\partial x_1} & \frac{\partial f_1(\bar{x})}{\partial x_2} \\
-		\frac{\partial f_2(\bar{x})}{\partial x_1} & \frac{\partial f_2(\bar{x})}{\partial x_2}
-	\end{bmatrix}$
-	\item Find the behavior of each equilibrium point by plugging it into the linearized matrix.
-\end{enumerate}
-
-The behavior of the equilibrium point depends on the eigenvalues of the matrix for the point. 
-
-\begin{itemize}
-	\item All eigenvalues real and negative: Stable Node (path goes directly towards equilibrium point)
-	\item At-least one eigenvalue is positive and all are real: Saddle (unstable)
-	\item All eigenvalues are real and positive: Unstable Node (path goes directly away from equilibrium point)
-	\item Eigenvalues are complex and real part is negative: Stable Focus (path spirals towards equilibrium point).
-	\item Eigenvalues are complex and real part is positive: Unstable Focus (path spirals away from equilibrium point).
-	\item Eigenvalues are purely imaginary: Center Equilibrium Point (path goes around equilibrium point but does not go towards or away from it).
-\end{itemize}
 
 \newpage
 \section*{Stability Theorems}
@@ -333,69 +397,12 @@ The behavior of the equilibrium point depends on the eigenvalues of the matrix f
 \end{itemize}
 
 \newpage
-\section*{Solutions to Time Varying Linear Systems (Non-Autonomous)}
-Consider systems in the form 
-$$ 
-\begin{cases}
-\dot{\bar{x}}=A(t)\bar{x} \\
-\bar{x}(t_0)=\bar{x}_0
-\end{cases}
-$$
-where $\{a_{ij}(t)\}$ are continuous on $[t_0,t_0+T]$ \\
-
-\noindent
-The solution is in the form (systems theory week 3 page 17):
-$$\bar{x}(t)=\Phi(t,t_0)\bar{x}_0$$
-
-\noindent
-where the {\em Transition Matrix} is in the form:
-
-$$ \Phi(t,t_0) = I + \int_{t_0}^t A(\tau_1)d\tau_1+\int_{t_0}^tA(\tau_1)\int_{t_0}^{\tau_1}A(\tau_2)d\tau_2d\tau_1+\dots$$
-
-\noindent
-Note that for {\em Linear Time Invariant} Systems $\dot{\bar{x}}=A\bar{x}$ 
-$$\bar{x}(t)=e^{At}\bar{x}(0)\rightarrow \Phi(t,0)=e^{At}$$
-
-\subsection*{Properties of $ \Phi(t,\tau)$}
-
-\begin{itemize}
-	\item $\Phi(t,t) = I$
-	\item $\frac{\partial}{\partial t}\Phi(t,\tau)=A(t)\Phi(t,\tau)$
-	\item $\frac{\partial}{\partial t}\Phi(t,\tau)=-\Phi(t,\tau)A(t)$
-	\item $\Phi(t,\tau)=\Phi(t,\sigma)\Phi(\sigma,\tau)$
-	\item $\Phi(t,\tau)$ is non-singular for all t, $\tau$
-	\item $\Phi^{-1}(t,\tau)=\Phi(\tau,t)$
-\end{itemize}
-
-\subsection*{Special Cases}
-If $A(t)$ is a triangular matrix:
-
-$$ A(t) = 
-\begin{bmatrix}
-a_{11}(t) & a_{12}(t) & a_{13}(t) \\
-0 & a_{22}(t) & a_{23}(t) \\
-0 & 0& a_{33}(t)\\
-\end{bmatrix}
-$$
-Then so too is $\Phi(t,t_0)$:
-$$\Phi(t,t_0) = 
-\begin{bmatrix}
-\phi_{11}(t,t_0) & \phi_{12}(t,t_0) & \phi_{13}(t,t_0)\\
-0 & \phi_{22}(t,t_0) & \phi_{23}(t,t_0) \\
-0 & 0 & \phi_{33}(t,t_0)\\
-\end{bmatrix}
-$$
-
-\noindent
-The diagonal transition functions can be found with this equation:
-$$\phi_{ii}(t,t_0)=e^{\int_{t_0}^ta_{ii}(\tau)d\tau}$$
-
 \section*{Controllability}
 \subsection*{Theorem 5.1 ({\em Linear Systems Theory} Page. 249)}
 The continuous linear system is controllable from any initial state $x(t_0)=x_0$ to an arbitrary state $x_1$ at time $t_1>t_0$ if and only if matrix $W(t_0,t_1)$ is nonsingular.
 
 \subsection*{Controllability Gramian}
-$$W(t_0,t_1)=\int_{t_0}^{t_1}\phi(t_0,\tau)B(\tau)B^T(\tau)\phi^T(t_0,\tau)d\tau$$
+$$W(t_0,t_1)=\int_{t_0}^{t_1}\Phi(t_0,\tau)B(\tau)B^T(\tau)\Phi^T(t_0,\tau)d\tau$$
 
 \subsection*{Theorem 5.2 ({\em Linear Systems Theory} Page. 251)}
 Matrix $W(t_0,t_1)$ satisfies the following properties:
@@ -424,7 +431,7 @@ $rank(K)=n$ $\rightarrow$ Fully controllable (completly).
 \section*{Observability}
 
 \subsection*{Equation 5.6 ({\em Linear Systems Theory} Page. 296)}
-$$M(t_0,t_1)=\int_{t_0}^{t_1}\phi^T(\tau,t_0)C^T(\tau)C(\tau)\phi(\tau,t_0)d\tau$$
+$$M(t_0,t_1)=\int_{t_0}^{t_1}\Phi^T(\tau,t_0)C^T(\tau)C(\tau)\Phi(\tau,t_0)d\tau$$
 
 \subsection*{Theorem 6.1 ({\em Linear Systems Theory} Page. 296)}
 It is possible to determine $x_0$ with in an additive constant vector, which is in $N(M(t_0,t_1))$. If $M(t_0,t_1)$ is nonsingular, then $x_0$ can be determined uniquely.
