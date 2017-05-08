@@ -243,7 +243,7 @@ $$e^{At} = I+\sum_{j=1}^\infty \frac{t^j}{j!}A^j$$
 A Taylor Series solution sometimes works because you can get a case where the matrix A resolves to a matrix filled with zeros in a finite number of iterations or are able to either find a pattern that converges.
 
 \subsubsection*{Examples of Infinite Series Convergence}
-The following could appear as solutions for matrices you are trying to solve
+The following could appear as solutions for cells in the matrices you are trying to solve
 $$\sum_{k=0}^\infty \frac{z^k}{k!} = e^z\,\!$$
 $$\sum_{k=0}^\infty k\frac{z^k}{k!} = z e^z\,\!$$
 $$\sum_{k=0}^\infty \frac{(-1)^k z^{2k+1}}{(2k+1)!}=\sin z\,\!$$
@@ -440,8 +440,20 @@ is controllable.
 \subsection*{Theorem 5.4 ({\em Linear Systems Theory} Page. 258)}
 The time-invariant continuous linear system is completely controllable if and only if the rank of the controllability matrix $K$ equals n.
 $$K=(B,AB,A^2B,\dots,A^{n-1}B)$$
-$rank(K)=n$ $\rightarrow$ Fully controllable (completly).
+$rank(K)=n$ $\rightarrow$ Fully controllable (completely).
  
+\subsection*{Controlling Along a Trajectory}
+The following algorithm verifies whether a system can be controlled to $x_1$ at time $t_1$ or not ({\em Linear Systems Theory} Page 246).
+\begin{enumerate}
+	\item Compute the fundamental matrix $\Phi(t,t_0)$.
+	\item Determine matrix $W(t_0,t_1)$
+	\item Find vector $\bar{d}=\Phi(t_0,t_1)\bar{x_1}-\bar{x_0}$
+	\item Use Gauss elimination to determine whether linear equation 
+	$$W(t_0,t_1)\bar{a}=\bar{d}$$
+	has a solution. If it does the system can be controlled to $x_1$ at $t_1$
+	\item If a is a solution $u(t)$ can be found by this equation:
+	$$u(t)=B^T(t)\Phi^T(t_0,t)\bar{a}$$
+\end{enumerate}
 
 \newpage
 \section*{Observability}
